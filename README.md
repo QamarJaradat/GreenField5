@@ -6,6 +6,7 @@
   - Emad Aqel
   - Noor Aldeen Ashqer 
   - Qamar Jaradat
+  - Razan Abusamra
 
 ## Table of Contents
 
