@@ -35,6 +35,10 @@ function Footer() {
                 </div>
                 <div className='footer-link-wrapper'>
                     <div class='footer-link-items'>
+                    </div>
+                </div>
+                <div className='footer-link-wrapper'>
+                    <div class='footer-link-items'>
                         <h2>Social Media</h2>
                         <Link to='/'>Instagram</Link>
                         <Link to='/'>Facebook</Link>
