@@ -43,18 +43,3 @@ let users = mongoose.model("userinfo", userSchema);
 let payment = mongoose.model("paymentinfo", paymentSchema);
 
 module.exports = db
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
