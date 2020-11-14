@@ -1,14 +1,15 @@
 const express = require('express');
 const routers = express.Router();
 const User = require('./db').users
+const bcrypt = require('bcryptjs')
 routers.get('/', function (req, res, next) {
     res.send('imad');
 });
 
-routers.get('/signup', function (req, res) {
-    var userName = req.body.userName
+routers.get('/signup', (req, res) => {
+    var userMail = req.body.userMail
     var userPass = req.body.userPass
-    User.findOne({ userName: userName, userPass: userPass }, (err, user) => {
+    User.findOne({ userMail: userMail }, async (err, user) => {
         if (err) {
             console.log(err)
             return res.status(500).send()
@@ -17,26 +18,48 @@ routers.get('/signup', function (req, res) {
             console.log('user not found')
             return res.status(404).send()
         }
-        return res.status(200).send()
+        else {
+            const vaildPass = await bcrypt.compare(req.body.userPass, user.userPass)
+            if (!vaildPass) {
+                res.status(400).send('invalid Password')
+            }
+            else
+                return res.status(200).send('correct password')
+        }
+
     })
 });
 
-routers.post('/signin', function (req, res) {
+routers.post('/register', async (req, res) => {
 
-    var newuser = new User()
-    newuser.userName = req.body.userName
-    newuser.userMail = req.body.userMail
-    newuser.userPass = req.body.userPass
-    newuser.userNum = req.body.userNum
-    newuser.trips = []
-    newuser.newsLetter = req.body.newsLetter
-    newuser.save((err, saveduse) => {
+    const salt = await bcrypt.genSalt(10)
+    const hashedPass = await bcrypt.hash(req.body.userPass, salt)
+    User.findOne({ userMail: req.body.userMail }, (err, user) => {
         if (err) {
             console.log(err)
-            return res.status(500).send()
+            return res.status(500).send('error')
         }
-        return res.status(200).send()
+        if (!user) {
+            var newuser = new User()
+            newuser.userName = req.body.userName
+            newuser.userMail = req.body.userMail
+            newuser.userPass = hashedPass
+            newuser.userNum = req.body.userNum
+            newuser.trips = []
+            newuser.newsLetter = req.body.newsLetter
+            newuser.save((err, saveduse) => {
+                if (err) {
+                    console.log(err)
+                    return res.status(500).send('error')
+                }
+                return res.status(200).send('created')
+            })
+        }
+        else
+            return res.status(500).send('user existed')
     })
+
+
 });
 
 module.exports = routers;
