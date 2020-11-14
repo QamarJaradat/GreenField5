@@ -2,6 +2,10 @@ const express = require('express');
 const routers = express.Router();
 const User = require('./db').users
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken');
+const { Router } = require('express');
+
+const auth = require('./auth')
 routers.get('/', function (req, res, next) {
     res.send('imad');
 });
@@ -24,7 +28,10 @@ routers.get('/signup', (req, res) => {
                 res.status(400).send('invalid Password')
             }
             else
-                return res.status(200).send('correct password')
+
+                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '30s' })
+            res.header('authToken', token)
+            return res.status(200).send(token)
         }
 
     })
@@ -37,7 +44,7 @@ routers.post('/register', async (req, res) => {
     User.findOne({ userMail: req.body.userMail }, (err, user) => {
         if (err) {
             console.log(err)
-            return res.status(500).send('error')
+            return res.status(400).send('error')
         }
         if (!user) {
             var newuser = new User()
@@ -50,16 +57,28 @@ routers.post('/register', async (req, res) => {
             newuser.save((err, saveduse) => {
                 if (err) {
                     console.log(err)
-                    return res.status(500).send('error')
+                    return res.status(400).send('error')
                 }
                 return res.status(200).send('created')
             })
         }
         else
-            return res.status(500).send('user existed')
+            return res.status(400).send('user existed')
     })
 
 
 });
+
+
+routers.post('/payment', auth, (req, res) => {
+    // auth(req, res)
+    User.findOne({ _id: req.user._id }, (err, data) => {
+        if (err) {
+            res.status(400).send('err')
+        }
+        return res.status(200).send(data)
+    })
+
+})
 
 module.exports = routers;
