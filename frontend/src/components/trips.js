@@ -16,8 +16,8 @@ class Trip extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center' }}>
+            <div >
+                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/2945/2945620.svg' alt='Trip Map'></img>
                         <p>trip line</p>
@@ -47,7 +47,7 @@ class Trip extends React.Component {
                 <div className='d-flex flex-wrap justify-content-around'>
 
                     <div className='inlinediv' style={{ 'width': '55%', 'height': '200px' }}>
-                        <div style={{ 'width': '99%', 'height': "30px", 'backgroundColor': "#ad679d", 'color': 'white' }}>
+                        <div style={{ 'width': '99%', 'height': "30px", 'backgroundColor': " rgb(82, 10, 41)", 'color': 'white' }}>
                             <h5 style={{ 'marginLeft': '15px' }}>Day1</h5>
                         </div>
 

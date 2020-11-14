@@ -21,7 +21,7 @@ let tripsSchema = mongoose.Schema({
     maximumNumPerTour: Number,
 })
 let userSchema = mongoose.Schema({
-    id: { type: Number, unique: true },
+    id: { type: Number, unique: true, sparse: true },
     userName: String,
     userMail: String,
     userPass: String,
@@ -36,13 +36,13 @@ let paymentSchema = mongoose.Schema({
     cvv: Number,
     exDate: Date
 })
-
-
+// userSchema.index({ createdBy: 1, name: 1 }, { unique: true });
 let trips = mongoose.model("tripsinfo", tripsSchema);
 let users = mongoose.model("userinfo", userSchema);
 let payment = mongoose.model("paymentinfo", paymentSchema);
 
-module.exports = db
+
+module.exports.users = users
 
 
 
