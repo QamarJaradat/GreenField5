@@ -11,6 +11,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/frontend/build'))
 
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('/frontend/build'))
+}
+
+
 app.get('/', (req, res) => {
 
   res.json({ mess: "welcome welcome" })
