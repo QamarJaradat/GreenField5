@@ -52,12 +52,6 @@ function Navbar() {
                                 onClick={closeMobileMenu}
                             >User</Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link
-                                to='/payment'
-                                className='nav-links'
-                                onClick={closeMobileMenu}>Payment</Link>
-                        </li>
                         <li>
                             <Link
                                 to='/sign-up'
