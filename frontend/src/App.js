@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Homepage/Navbar';
 import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
+import Profile from './components/user/Profile';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
@@ -19,7 +20,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/trips" exact component={Trip} />
           <Route path="/sign-up" exact component={Login} />
-
+          <Route path="/user" exact component={Profile} />
 
         </Switch>
         <Footer />
@@ -28,5 +29,6 @@ function App() {
 
   );
 }
+
 
 export default App;
