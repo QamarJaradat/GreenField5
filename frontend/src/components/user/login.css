@@ -1,0 +1,27 @@
+
+.test{
+   
+    /* background-color: red; */
+    height:100vh;
+
+
+background-image:url('https://www.orbisrealty.com/wp-content/uploads/2019/07/o-TOURIST-facebook.jpg');
+background-size: cover;
+}
+html, body {
+    margin:0px;
+    height:100%;
+  }
+
+  #signup{
+      background-color: rgba(255, 255, 255, 0.603);
+      height:100vh;
+ }
+  
+
+  form{
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+
+  
