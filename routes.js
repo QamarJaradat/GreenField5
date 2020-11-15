@@ -27,11 +27,11 @@ routers.get('/signup', (req, res) => {
             if (!vaildPass) {
                 res.status(400).send('invalid Password')
             }
-            else
-
+            else {
                 var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '30s' })
-            res.header('authToken', token)
-            return res.status(200).send(token)
+                res.header('authToken', token)
+                return res.status(200).send(token)
+            }
         }
 
     })
@@ -78,7 +78,6 @@ routers.post('/payment', auth, (req, res) => {
         }
         return res.status(200).send(data)
     })
-
 })
 
 module.exports = routers;
