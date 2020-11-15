@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../../../src/App.css';
 import './A-Style.css';
 import Section from './Section';
 import AboutUs from './AboutUs';
