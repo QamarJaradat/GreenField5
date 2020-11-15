@@ -21,7 +21,6 @@ function App() {
           <Route path="/trips" exact component={Trip} />
           <Route path="/sign-up" exact component={Login} />
           <Route path="/user" exact component={Profile} />
-
         </Switch>
         <Footer />
       </Router>

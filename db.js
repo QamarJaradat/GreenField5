@@ -43,7 +43,6 @@ let trips = mongoose.model("tripsinfo", tripsSchema);
 let users = mongoose.model("userinfo", userSchema);
 let payment = mongoose.model("paymentinfo", paymentSchema);
 
-<<<<<<< HEAD
 
 module.exports.users = users
 
@@ -61,6 +60,3 @@ module.exports.users = users
 
 
 
-=======
-module.exports = db
->>>>>>> a7af87f3f4348342b878681e87558cca6c77dc55
