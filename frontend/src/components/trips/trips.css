@@ -1,6 +1,10 @@
 .imgs{
     width: 60px;
 }
+body{
+    background-color: white;
+}
+
 
 .inlinediv{
     display: inline-block;
