@@ -392,6 +392,11 @@ video {
       display: flex;
       align-items: center;
     }
+    .navbar-logo :hover {
+      color: rgb(236, 219, 219);
+      text-decoration: none;
+      
+    }
     
     .fa-typo3 {
       margin-left: 0.5rem;
@@ -423,8 +428,10 @@ video {
     }
     
     .nav-links:hover {
-      border-bottom: 4px solid #fff;
+      border-bottom: 4px solid #FDEDF4;
       transition: all 0.2s ease-out;
+      text-decoration: none ;
+      color: #FDEDF4;
     }
     
     .fa-bars {
@@ -472,7 +479,7 @@ video {
       }
     
       .nav-links:hover {
-        background-color: #fff;
+        background-color: #FDEDF4;
         color: #242424;
         border-radius: 0;
       }
@@ -515,7 +522,7 @@ video {
       }
     
       .nav-links-mobile:hover {
-        background: #fff;
+        background: #FDEDF4;
         color: #242424;
         transition: 250ms;
       }
@@ -561,7 +568,7 @@ video {
   .btn--large:hover,
   .btn--medium:hover {
     transition: all 0.3s ease-out;
-    background: #fff;
+    background: #FDEDF4;
     color: #242424;
     transition: all 0.3s ease-out;
   }
