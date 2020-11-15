@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './login.css';
 
-class Login extends Component {
+class signup extends Component {
     render() {
         return (
             <div className="test">
@@ -25,4 +25,4 @@ class Login extends Component {
 
 
 
-export default Login;
+export default signup;

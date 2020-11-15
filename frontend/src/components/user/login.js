@@ -1,7 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './login.css';
 
-class Login extends Component {
+class Login extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+
+    }
+  }
   render() {
     return (
       <div className="test">
@@ -11,7 +17,7 @@ class Login extends Component {
 
           <div id="signup" class="col-sm-4 right" >
             <form action="#" className='form1' >
-              <h1>new to our website join us and signup here</h1>
+              <h4>new to our website join us and signup here {this.props.hello}</h4>
               <div>
                 <label>First Name</label>
                 <input type="string" className="form-control" name="firstName" placeholder="First Name" />
