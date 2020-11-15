@@ -6,7 +6,7 @@ import './A-Style.css';
 function Section() {
     return (
         <div className='section-container'>
-            <video src="../../public/videos/video-2.mp4" autoPlay loop mute />
+            {/* <video src="../../public/videos/video-2.mp4" autoPlay loop mute /> */}
             <h1>EXPLORE PALESTINE</h1>
             <p>The Wonderfull Holy Land</p>
             <div className='section-btns'>

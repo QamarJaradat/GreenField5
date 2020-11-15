@@ -85,6 +85,7 @@
 .footer-link-items a:hover {
   color: #e9e9e9;
   transition: 0.3s ease-out;
+  
 }
 
 .footer-email-form h2 {
@@ -127,13 +128,16 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
-  text-decoration: none;
+  Text-decoration: None !important;
   font-size: 2rem;
   display: flex;
   align-items: center;
   margin-bottom: 16px;
 }
-
+.social-logo :hover {
+  color:None !important;
+  Text-decoration: None !important;
+}
 .website-rights {
   color: #fff;
   margin-bottom: 16px;
@@ -195,7 +199,7 @@ h1,h3 {
 .cards__item {
   display: flex;
   flex: 1;
-  margin: 0 1rem;
+  margin: 0 2.5rem;
   border-radius: 10px;
 }
 
@@ -258,12 +262,14 @@ h1,h3 {
 
 .cards__item__info {
   padding: 20px 30px 30px;
+  Text-decoration: None !important
 }
 
 .cards__item__text {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+  Text-decoration: None !important
 }
 
 @media only screen and (min-width: 1200px) {
@@ -391,6 +397,11 @@ video {
       font-size: 2rem;
       display: flex;
       align-items: center;
+      text-decoration: none !important;
+    }
+    .navbar-logo :hover {
+      color: rgb(236, 219, 219);
+      text-decoration: none !important;
     }
     
     .fa-typo3 {
@@ -423,8 +434,10 @@ video {
     }
     
     .nav-links:hover {
-      border-bottom: 4px solid #fff;
+      border-bottom: 4px solid #FDEDF4;
       transition: all 0.2s ease-out;
+      text-decoration: none ;
+      color: #FDEDF4;
     }
     
     .fa-bars {
@@ -472,7 +485,7 @@ video {
       }
     
       .nav-links:hover {
-        background-color: #fff;
+        background-color: #FDEDF4;
         color: #242424;
         border-radius: 0;
       }
@@ -482,6 +495,7 @@ video {
         top: 0;
         left: 0;
         transform: translate(25%, 50%);
+        Text-decoration: None !important;
       }
     
       .menu-icon {
@@ -515,7 +529,7 @@ video {
       }
     
       .nav-links-mobile:hover {
-        background: #fff;
+        background: #FDEDF4;
         color: #242424;
         transition: 250ms;
       }
@@ -561,7 +575,7 @@ video {
   .btn--large:hover,
   .btn--medium:hover {
     transition: all 0.3s ease-out;
-    background: #fff;
+    background: #FDEDF4;
     color: #242424;
     transition: all 0.3s ease-out;
   }

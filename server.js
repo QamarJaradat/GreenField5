@@ -21,6 +21,6 @@ app.get('/', (req, res) => {
   res.json({ mess: "welcome welcome" })
 
 })
-app.use('/signin', routers)
+app.use('/', routers)
 module.exports = app;
 

@@ -1,6 +1,8 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const mongoose = require('mongoose');
-var url = "mongodb+srv://lef:1234@cluster0.diesu.mongodb.net/<dbname>?retryWrites=true&w=majority"
-mongoose.connect(process.env.MONGODB || url, { useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true })
+// var url = "mongodb+srv://lef:1234@cluster0.diesu.mongodb.net/<dbname>?retryWrites=true&w=majority"
+mongoose.connect(process.env.DB_CONNECT, { useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true })
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error'))
 db.once('open', function () {
@@ -21,7 +23,7 @@ let tripsSchema = mongoose.Schema({
     maximumNumPerTour: Number,
 })
 let userSchema = mongoose.Schema({
-    id: { type: Number, unique: true },
+    id: { type: Number, unique: true, sparse: true },
     userName: String,
     userMail: String,
     userPass: String,
@@ -36,13 +38,13 @@ let paymentSchema = mongoose.Schema({
     cvv: Number,
     exDate: Date
 })
-
-
+// userSchema.index({ createdBy: 1, name: 1 }, { unique: true });
 let trips = mongoose.model("tripsinfo", tripsSchema);
 let users = mongoose.model("userinfo", userSchema);
 let payment = mongoose.model("paymentinfo", paymentSchema);
 
-module.exports = db
+
+module.exports.users = users
 
 
 
