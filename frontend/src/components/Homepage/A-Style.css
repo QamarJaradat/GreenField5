@@ -128,14 +128,16 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
-  text-decoration: none;
+  Text-decoration: None !important;
   font-size: 2rem;
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+}
+.social-logo :hover {
+  color:None !important;
   Text-decoration: None !important;
 }
-
 .website-rights {
   color: #fff;
   margin-bottom: 16px;
@@ -172,7 +174,7 @@
   background: #fff;
 }
 
-h1,h3 {
+h1,h2,h3 {
   text-align: center;
 }
 
@@ -260,12 +262,14 @@ h1,h3 {
 
 .cards__item__info {
   padding: 20px 30px 30px;
+  Text-decoration: None !important
 }
 
 .cards__item__text {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+  Text-decoration: None !important
 }
 
 @media only screen and (min-width: 1200px) {
@@ -491,6 +495,7 @@ video {
         top: 0;
         left: 0;
         transform: translate(25%, 50%);
+        Text-decoration: None !important;
       }
     
       .menu-icon {
