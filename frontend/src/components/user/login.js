@@ -3,47 +3,35 @@ import './login.css';
 
 class Login extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-
+      islogin: false,
     }
+    this.changeLogInStatus = this.changeLogInStatus.bind(this)
   }
+  changeLogInStatus() {
+    this.setState({
+      islogin: !this.state.islogin
+    })
+    console.log("hello darkness my old firend ")
+  }
+
   render() {
     return (
       <div className="test">
 
         <div className="row">
 
+          <div id="signin" className="col-sm-4 left form-group">
+            <form action="#">
+              <h1>do you have an acount please sign in here</h1>
+              <input type="email" className="form-control" name="email" placeholder="moon19 allah" />
+              <input type="passowrd" className="form-control" name="password" placeholder="put the password or die" />
+              <small id="emailHelp" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? thanks mays</small>
 
-          <div id="signup" class="col-sm-4 right" >
-            <form action="#" className='form1' >
-              <h4>new to our website join us and signup here {this.props.hello}</h4>
-              <div>
-                <label>First Name</label>
-                <input type="string" className="form-control" name="firstName" placeholder="First Name" />
-              </div>
-              <div>
-                <label>last Name</label>
-                <input type="string" className="form-control" name="lastName" placeholder="Last Name" />
-              </div>
-              <div>
-                <label>Email</label>
-                <input type="email" className="form-control" name="email" placeholder="moon19 allah" />
-              </div>
-              <div>
-                <label>Password</label>
-                <input type="passowrd" className="form-control" name="password" placeholder="put the password or die" />
-              </div>
-              <div>
-                <lable>Confirm Password</lable>
-                <input type="passowrd" className="form-control" name="conformPassword" placeholder="do it again" />
-              </div>
-              <div style={{ "marginTop": '12px' }}>
-                <input type='button' value='Sign Up!' className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-                <small id="emailHelp" class="form-text text-muted" style={{ "display": 'inline-block' }}>have account? Login.</small>
-              </div>
             </form>
           </div>
+
         </div>
       </div>
     )
