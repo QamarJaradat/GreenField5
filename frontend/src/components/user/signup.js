@@ -23,7 +23,7 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
-                            <h1>new to our website </h1><h3>join us and signup here</h3>
+                            <h2>new to our website </h2><h3>join us and signup here</h3>
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control" name="firstName" placeholder="First Name" />
