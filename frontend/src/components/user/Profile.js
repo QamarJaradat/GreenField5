@@ -1,6 +1,6 @@
 import React from "react";
 import './Profile.css';
-import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import { List, ListItem, ListItemContent } from 'react-mdl';
 // import ReactDOM from "react-dom";
 // import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 
@@ -18,7 +18,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div className="hole" >
-        <div className='all' style={{ 'margin-left': '200px' }}>
+        <div className='all' style={{ 'marginLeft': '200px' }}>
           <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '10px', 'margin-right': ' 200px' }}>
           </div>
 
