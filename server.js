@@ -3,8 +3,8 @@ const app = express();
 const routers = require('./routes');
 
 const bodyParser = require('body-parser');
-const database = require('./db');
-const { port } = require('./db');
+// const database = require('./db');
+// const { port } = require('./db');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
