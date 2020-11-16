@@ -18,7 +18,9 @@ html, body {
       height:100vh;
  }
  
-  
+  h1,h3{
+    font-family: 'Dancing Script', cursive;
+  }
 
   form{
       margin-left: 10%;
