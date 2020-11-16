@@ -10,6 +10,7 @@ import Trips from './components/Homepage/Cards'
 import Login from './components/user/login'
 import Trip from './components/trips/trips'
 import Signup from './components/user/signup'
+// import Payment from './components/payment/payment'
 
 
 
@@ -25,6 +26,7 @@ class App extends React.Component {
     this.setState({
       islogin: !this.state.islogin
     })
+    document.documentElement.scrollTop = 0;
   }
 
   render() {
