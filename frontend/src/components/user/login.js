@@ -4,15 +4,21 @@ import './login.css';
 
 class Login extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      islogin: false,
+      email: '',
+      password: ''
+
+
     }
-    // this.LoginHandler = this.LoginHandler.bind(this)
+    this.handelchange = this.handelchange.bind(this)
+
   }
-
-
-
+  handelchange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
   render() {
     return (
       <div className="test">
@@ -21,11 +27,20 @@ class Login extends React.Component {
 
           <div id="signin" className="col-sm-4 left form-group">
             <form action="#">
-              <h2>do you have an acount please sign in here</h2>
-              <input type="email" className="form-control" name="email" placeholder="moon19 allah" />
-              <input type="passowrd" className="form-control" name="password" placeholder="put the password or die" />
-              <small id="emailHelp" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? thanks mays</small>
-
+              <h3 id="signuptitle">Do you have an account</h3>
+              <h3>sign in here</h3>
+              <div>
+                <label>Your Email</label>
+                <input type="email" className="form-control inputhover" name="email" placeholder="email" onChange={this.handelchange} />
+              </div>
+              <div>
+                <label>Password</label>
+                <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="password" />
+              </div>
+              <div style={{ "marginTop": '12px' }}>
+                <input type='button' value='Signin' className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Signup here</small>
+              </div>
             </form>
           </div>
 
@@ -34,7 +49,6 @@ class Login extends React.Component {
     )
   }
 }
-
 
 
 export default Login;

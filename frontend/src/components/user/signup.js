@@ -19,6 +19,7 @@ class Signup extends Component {
         this.LoginHandler = this.LoginHandler.bind(this)
         this.handelchange = this.handelchange.bind(this)
     }
+
     handelchange(e) {
         this.setState({
             [e.target.name]: e.target.value
@@ -28,9 +29,31 @@ class Signup extends Component {
     LoginHandler() {
 
         if (this.state.password === this.state.conformPassword) {
-            $.get('/test', function (data, status) {
-                alert("Data: " + data + "\nStatus: " + status);
+            var username = this.state.firstName + " " + this.state.lastName
+            var data = {
+                userName: username, userPass: this.state.password,
+                userMail: this.state.email, userNum: this.state.phoneNo
+            }
+            $.ajax({
+                type: "POST",
+                url: "/test",
+                data: data,
+                success: function (res) {
+                    console.log("it's working")
+                    window.location.href = "/"
+
+                },
+                error: function (error) {
+                    if (error.status === 406) {
+                        alert('already created user with this Email')
+                        console.log(error.responseText)
+                    }
+                }
             })
+
+        }
+        else {
+            alert("Password not matche");
         }
     }
     render() {
@@ -42,34 +65,35 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
-                            <h2>new to our website </h2><h3>join us and signup here</h3>
+                            <h3 id="signintitle">New to our website join us and signup here</h3>
                             <div>
                                 <label>First Name</label>
-                                <input type="string" className="form-control" name="firstName" placeholder="First Name" />
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
                             </div>
                             <div>
                                 <label>Last Name</label>
-                                <input type="string" className="form-control" name="lastName" placeholder="Last Name" />
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="lastName" placeholder="Last Name" />
                             </div>
+
                             <div>
                                 <label>Email</label>
-                                <input type="email" className="form-control" name="email" placeholder="moon19 allah" />
+                                <input type="email" className="form-control inputhover" onChange={this.handelchange} name="email" placeholder="email" />
                             </div>
                             <div>
                                 <label>Phone Number</label>
-                                <input type="email" className="form-control" name="phoneNo" placeholder="Your phone Number" />
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name='phoneNo' placeholder="Your phone Number" />
                             </div>
                             <div>
                                 <label>Password</label>
-                                <input type="passowrd" className="form-control" name="password" placeholder="put the password or die" />
+                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="password" />
                             </div>
                             <div>
                                 <lable>Confirm Password</lable>
-                                <input type="passowrd" className="form-control" name="conformPassword" placeholder="do it again" />
+                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="confirm password" />
                             </div>
                             <div style={{ "marginTop": '12px' }}>
-                                <input type='button' onClick={this.LoginHandler} value='Sign Up!' className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-                                <small id="emailHelp" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+                                <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
                             </div>
                         </form>
                     </div>

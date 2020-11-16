@@ -6,9 +6,9 @@ const jwt = require('jsonwebtoken');
 const { Router } = require('express');
 
 const auth = require('./auth')
-routers.get('/test', (req, res) => {
+routers.post('/test2', (req, res) => {
     console.log('come oooon')
-    console.log(req.body)
+    console.log(req.body.userMail)
     res.send('imad');
 });
 
@@ -39,7 +39,7 @@ routers.get('/signup', (req, res) => {
     })
 });
 
-routers.post('/register', async (req, res) => {
+routers.post('/test', async (req, res) => {
 
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.userPass, salt)
@@ -62,10 +62,11 @@ routers.post('/register', async (req, res) => {
                     return res.status(400).send('error')
                 }
                 return res.status(200).send('created')
+
             })
         }
         else
-            return res.status(400).send('user existed')
+            return res.status(406).send('user existed')
     })
 
 
