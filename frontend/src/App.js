@@ -55,6 +55,9 @@ class App extends React.Component {
     //   })
   }
   render() {
+    if (!this.state.tokenin === '') {
+      console.log('hi')
+    }
     const { islogin } = this.state
     if (islogin) {
       return (
