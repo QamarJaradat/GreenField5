@@ -4,6 +4,7 @@ import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
 import Profile from './components/user/Profile';
 
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Trips from './components/Homepage/Cards'
@@ -21,12 +22,14 @@ class App extends React.Component {
       islogin: true,
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
+
   }
   changeLogInStatus() {
     this.setState({
       islogin: !this.state.islogin
     })
     document.documentElement.scrollTop = 0;
+
   }
 
   render() {

@@ -1,16 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.qoute {
+  font-family: 'Dancing Script', cursive;
+  color:#2D1214;
+}
 /* ////////////////////////////////////////////////// */
 /* Footer.css */
 .footer-container {
   background-color: #242424;
   padding: 4rem 0 2rem 0;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.center{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 }
 
 .footer-subscription {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -105,6 +118,8 @@
 .social-media {
   max-width: 1000px;
   width: 100%;
+  text-align: center;
+
 }
 
 .social-media-wrap {
@@ -114,6 +129,9 @@
   width: 90%;
   max-width: 1000px;
   margin: 40px auto 0 auto;
+  text-align: center;
+  margin-left: 30vh;
+
 }
 
 .social-icons {
