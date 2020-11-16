@@ -11,8 +11,14 @@ class Trip extends React.Component {
         this.booktrip = this.booktrip.bind(this)
     }
 
+    componentDidMount() {
+        // const { trip } = this.props.match.paras
+        // const { fromNotificaions } = this.props.location.state
+        // console.log("  ", fromNotificaions)
+    }
+
     booktrip() {
-        console.log('clicked')
+        console.log('clicked ', this.props)
     }
     render() {
         return (
@@ -20,7 +26,7 @@ class Trip extends React.Component {
                 <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/2945/2945620.svg' alt='Trip Map'></img>
-                        <p>trip line</p>
+                        <p>trip line </p>
                     </div>
 
                     <div>
@@ -59,8 +65,7 @@ class Trip extends React.Component {
 
                     </div>
                     <div className='inlinediv' style={{ 'width': '44%', 'height': '200px' }}>
-                        <img className='tripimgs' src='https://i.imgur.com/9gbkGfI.jpg
-' alt='Date'></img>
+                        <img className='tripimgs' src='https://i.imgur.com/9gbkGfI.jpeg' alt='Date'></img>
                     </div>
                 </div>
 

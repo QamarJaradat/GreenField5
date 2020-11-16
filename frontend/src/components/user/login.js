@@ -1,21 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './login.css';
 
-class Login extends Component {  
-    constructor(props){
-        super(props);
-        this.state = {
-            islogin : false,
-        }
-        this.changeLogInStatus = this.changeLogInStatus.bind(this)
-    } 
-    changeLogInStatus(){
-      this.setState({
-        islogin : !this.state.islogin
-      })
-      console.log("hello darkness my old firend ")
-    }         
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+class Login extends React.Component {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     render() {
         return (
             <div className="test">
@@ -24,10 +10,12 @@ class Login extends Component {
 
                     <div id="signin" className="col-sm-4 left form-group">
                         <form action="#">
-                            <h1>do you have an acount please sign in here</h1>
-                            <input type="email" className="form-control" name="email" placeholder="moon19 allah" />
-                            <input type="password" className="form-control" name="password" placeholder="put the password or die" />
-                            <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick = {this.props.toggleLogin}>have account? thanks mays</small>
+                            <h3 id = "signuptitle">Do you have an account</h3>
+                            <h3>sign in here</h3>
+                            <input type="email" className="form-control inputhover"  name="email" placeholder="email" />
+                            <input type="password" className="form-control inputhover" name="password" placeholder="password" />
+                            <input type='button' value='Signin' className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+                            <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick = {this.props.toggleLogin}>Signup here</small>
                         </form>
                     </div>
 
@@ -36,6 +24,7 @@ class Login extends Component {
         )
     }
 }
+
 
 
 
