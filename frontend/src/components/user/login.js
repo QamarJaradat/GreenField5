@@ -1,6 +1,6 @@
 import React from 'react'
 import './login.css';
-// import $ from 'jquery'
+import $ from 'jquery'
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,6 +12,34 @@ class Login extends React.Component {
 
     }
     this.handelchange = this.handelchange.bind(this)
+    this.LoginHandler = this.LoginHandler.bind(this)
+
+  }
+  LoginHandler() {
+    var data = {
+      userPass: this.state.password,
+      userMail: this.state.email
+    }
+    $.ajax({
+      type: "POST",
+      url: "/login",
+      data: data,
+      success: function (res) {
+        console.log("it's working")
+        window.location.href = "/"
+      },
+      error: function (error) {
+        if (error.status === 404) {
+          alert('user not existed')
+          console.log(error.responseText)
+        }
+        if (error.status === 400) {
+          alert('wrong password')
+        }
+
+      }
+    })
+
 
   }
   handelchange(e) {
@@ -38,7 +66,7 @@ class Login extends React.Component {
                 <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="password" />
               </div>
               <div style={{ "marginTop": '12px' }}>
-                <input type='button' value='Signin' className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+                <input type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Signup here</small>
               </div>
             </form>

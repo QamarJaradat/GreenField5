@@ -12,17 +12,17 @@ routers.post('/test2', (req, res) => {
     res.send('imad');
 });
 
-routers.get('/signup', (req, res) => {
+routers.post('/login', (req, res) => {
     var userMail = req.body.userMail
     var userPass = req.body.userPass
     User.findOne({ userMail: userMail }, async (err, user) => {
         if (err) {
             console.log(err)
-            return res.status(500).send()
+            return res.status(500).send('error')
         }
         if (!user) {
             console.log('user not found')
-            return res.status(404).send()
+            return res.status(404).send('not found user')
         }
         else {
             const vaildPass = await bcrypt.compare(req.body.userPass, user.userPass)
@@ -39,7 +39,7 @@ routers.get('/signup', (req, res) => {
     })
 });
 
-routers.post('/test', async (req, res) => {
+routers.post('/signup', async (req, res) => {
 
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.userPass, salt)

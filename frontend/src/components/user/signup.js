@@ -13,8 +13,6 @@ class Signup extends Component {
             password: '',
             conformPassword: '',
             phoneNo: ''
-
-
         }
         this.LoginHandler = this.LoginHandler.bind(this)
         this.handelchange = this.handelchange.bind(this)
@@ -36,7 +34,7 @@ class Signup extends Component {
             }
             $.ajax({
                 type: "POST",
-                url: "/test",
+                url: "/signup",
                 data: data,
                 success: function (res) {
                     console.log("it's working")
