@@ -38,15 +38,15 @@ changeLogInStatus(){
               </div>
               <div>
                 <label>Password</label>
-                <input type="passowrd" className="form-control" name="password" placeholder="put the password or die" />
+                <input type="password" className="form-control" name="password" placeholder="put the password or die" />
               </div>
               <div>
                 <lable>Confirm Password</lable>
-                <input type="passowrd" className="form-control" name="conformPassword" placeholder="do it again" />
+                <input type="password" className="form-control" name="conformPassword" placeholder="do it again" />
               </div>
               <div style={{ "marginTop": '12px' }}>
                 <input type='button' value='Sign Up!' className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-                <small id="emailHelp" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick = {this.props.toggleLogin}>have account? Login.</small>
+                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick = {this.props.toggleLogin}>have account? Login.</small>
               </div>
             </form>
           </div>

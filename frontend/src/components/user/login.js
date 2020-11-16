@@ -26,9 +26,8 @@ class Login extends Component {
                         <form action="#">
                             <h1>do you have an acount please sign in here</h1>
                             <input type="email" className="form-control" name="email" placeholder="moon19 allah" />
-                            <input type="passowrd" className="form-control" name="password" placeholder="put the password or die" />
-                            <small id="emailHelp" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick = {this.props.toggleLogin}>have account? thanks mays</small>
-
+                            <input type="password" className="form-control" name="password" placeholder="put the password or die" />
+                            <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick = {this.props.toggleLogin}>have account? thanks mays</small>
                         </form>
                     </div>
 

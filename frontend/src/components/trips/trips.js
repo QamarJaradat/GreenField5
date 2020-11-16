@@ -59,7 +59,8 @@ class Trip extends React.Component {
 
                     </div>
                     <div className='inlinediv' style={{ 'width': '44%', 'height': '200px' }}>
-                        <img className='tripimgs' src='https://4.bp.blogspot.com/-eapu1aATAhk/VOn6pl4bvqI/AAAAAAAAOnU/JywtXHmyloQ/s1600/Baha%E2%80%99i%2BShrine%2Band%2BGardens%2BThe%2Bholy%2Bplace%2Bof%2BBaha%E2%80%99i%2BFaith-1.jpg' alt='Date'></img>
+                        <img className='tripimgs' src='https://i.imgur.com/9gbkGfI.jpg
+' alt='Date'></img>
                     </div>
                 </div>
 
@@ -78,7 +79,7 @@ class Trip extends React.Component {
 
                     </div>
                     <div className='inlinediv' style={{ 'width': '44%', 'height': '200px' }}>
-                        <img className='tripimgs' src='https://4.bp.blogspot.com/-eapu1aATAhk/VOn6pl4bvqI/AAAAAAAAOnU/JywtXHmyloQ/s1600/Baha%E2%80%99i%2BShrine%2Band%2BGardens%2BThe%2Bholy%2Bplace%2Bof%2BBaha%E2%80%99i%2BFaith-1.jpg' alt='Date'></img>
+                        <img className='tripimgs' src='https://i.imgur.com/9gbkGfI.jpeg' alt='Date'></img>
                     </div>
                 </div>
 

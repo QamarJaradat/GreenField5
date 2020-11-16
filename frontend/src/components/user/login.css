@@ -17,9 +17,11 @@ html, body {
       background-color: rgba(255, 255, 255, 0.603);
       height:100vh;
  }
+ #LoginupSwitch :hover {
+     color : blue !important;
+ }  
  
-  
-
+ 
   form{
       margin-left: 10%;
       margin-right: 10%;
