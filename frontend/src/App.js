@@ -22,6 +22,7 @@ class App extends React.Component {
       islogin: true,
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
+
   }
   changeLogInStatus() {
     this.setState({
