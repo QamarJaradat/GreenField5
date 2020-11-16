@@ -6,7 +6,9 @@ const jwt = require('jsonwebtoken');
 const { Router } = require('express');
 
 const auth = require('./auth')
-routers.get('/', function (req, res, next) {
+routers.get('/test', (req, res) => {
+    console.log('come oooon')
+    console.log(req.body)
     res.send('imad');
 });
 
@@ -28,7 +30,7 @@ routers.get('/signup', (req, res) => {
                 res.status(400).send('invalid Password')
             }
             else {
-                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '30s' })
+                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '5m' })
                 res.header('authToken', token)
                 return res.status(200).send(token)
             }

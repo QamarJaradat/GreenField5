@@ -1,5 +1,6 @@
 import React from 'react'
 import './login.css';
+// import $ from 'jquery'
 
 class Login extends React.Component {
   constructor(props) {
@@ -7,14 +8,10 @@ class Login extends React.Component {
     this.state = {
       islogin: false,
     }
-    this.changeLogInStatus = this.changeLogInStatus.bind(this)
+    // this.LoginHandler = this.LoginHandler.bind(this)
   }
-  changeLogInStatus() {
-    this.setState({
-      islogin: !this.state.islogin
-    })
-    console.log("hello darkness my old firend ")
-  }
+
+
 
   render() {
     return (
