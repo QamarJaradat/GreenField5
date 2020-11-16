@@ -14,13 +14,26 @@ html, body {
   }
 
   #signup,#signin{
+      
       background-color: rgba(255, 255, 255, 0.603);
       height:100vh;
  }
-/*  
-  h2,h3{
+ 
+ .inputhover:hover{
+
+     background-color:rgba(82, 10, 41, 0.377);
+     transition: 0.3s;
+ }
+ #LoginupSwitch:hover {
+     color : rgb(20, 20, 133) !important;
+     cursor: pointer;
+ }  
+ 
+ 
+ 
+  h3,h3{
     font-family: 'Dancing Script', cursive;
-  } */
+  }
 
   form{
       margin-left: 10%;

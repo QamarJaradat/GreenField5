@@ -6,21 +6,23 @@ const jwt = require('jsonwebtoken');
 const { Router } = require('express');
 
 const auth = require('./auth')
-routers.get('/', function (req, res, next) {
+routers.post('/test2', (req, res) => {
+    console.log('come oooon')
+    console.log(req.body.userMail)
     res.send('imad');
 });
 
-routers.get('/signup', (req, res) => {
+routers.post('/login', (req, res) => {
     var userMail = req.body.userMail
     var userPass = req.body.userPass
     User.findOne({ userMail: userMail }, async (err, user) => {
         if (err) {
             console.log(err)
-            return res.status(500).send()
+            return res.status(500).send('error')
         }
         if (!user) {
             console.log('user not found')
-            return res.status(404).send()
+            return res.status(404).send('not found user')
         }
         else {
             const vaildPass = await bcrypt.compare(req.body.userPass, user.userPass)
@@ -28,7 +30,7 @@ routers.get('/signup', (req, res) => {
                 res.status(400).send('invalid Password')
             }
             else {
-                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '30s' })
+                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '5m' })
                 res.header('authToken', token)
                 return res.status(200).send(token)
             }
@@ -37,7 +39,7 @@ routers.get('/signup', (req, res) => {
     })
 });
 
-routers.post('/register', async (req, res) => {
+routers.post('/signup', async (req, res) => {
 
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.userPass, salt)
@@ -60,10 +62,11 @@ routers.post('/register', async (req, res) => {
                     return res.status(400).send('error')
                 }
                 return res.status(200).send('created')
+
             })
         }
         else
-            return res.status(400).send('user existed')
+            return res.status(406).send('user existed')
     })
 
 
