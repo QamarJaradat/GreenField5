@@ -80,4 +80,8 @@ routers.post('/payment', auth, (req, res) => {
     })
 })
 
+
+routers.post('/trips', (req, res) => {
+    res.status(200).send('okay')
+})
 module.exports = routers;
