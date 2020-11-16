@@ -1,7 +1,7 @@
 import React from 'react';
 import Carditem from './Carditem';
 import './A-Style.css'
-import $ from 'jquery';
+// import $ from 'jquery';
 
 
 class Cards extends React.Component {
@@ -13,17 +13,17 @@ class Cards extends React.Component {
     }
 
     componentDidMount() {
-        $.ajax({
-            type: "POST",
-            url: "/trips",
-            data: { name: this.state.username, card: this.state.userccard },
-            success: function (res) {
-                console.log(res)
-            },
-            error: function (error) {
-                console.error('Failed to fetch Items', error);
-            }
-        })
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/trips",
+        //     data: { name: this.state.username, card: this.state.userccard },
+        //     success: function (res) {
+        //         console.log(res)
+        //     },
+        //     error: function (error) {
+        //         console.error('Failed to fetch Items', error);
+        //     }
+        // })
     }
 
 
