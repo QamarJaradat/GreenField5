@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 function auth(req, res, next) {
-    const token = req.header('authToken')
+    var t = Object.values(req.cookies)
+    const token = t[0]
     if (!token) {
         return res.status(401).send('You have to login first')
     }
@@ -8,6 +9,7 @@ function auth(req, res, next) {
     try {
         const verified = jwt.verify(token, process.env.TOKEN_SECRET)
         req.user = verified
+        res.header('authToken', token)
         next()
     }
     catch (err) {
