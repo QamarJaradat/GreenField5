@@ -5,12 +5,12 @@ import Section from './Section';
 import AboutUs from './AboutUs';
 import Cards from './Cards';
 
-function Home() {
+function Home(props) {
     return (
         <>
             <Section />
             <AboutUs />
-            <Cards />
+            <Cards lable1={props.hello} />
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Carditem from './Carditem';
 import './A-Style.css'
+
 // import $ from 'jquery';
 
 
@@ -8,23 +9,14 @@ class Cards extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            hello: 19
+            hello: "hello"
         }
     }
 
     componentDidMount() {
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/trips",
-        //     data: { name: this.state.username, card: this.state.userccard },
-        //     success: function (res) {
-        //         console.log(res)
-        //     },
-        //     error: function (error) {
-        //         console.error('Failed to fetch Items', error);
-        //     }
-        // })
+        console.log(this.props.lable1)
     }
+
 
 
 
@@ -39,12 +31,11 @@ class Cards extends React.Component {
                             <Carditem
                                 src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
                                 text="Explore Explore Explore"
-                                label="Trip1"
+                                label={this.props.lable1}
+                                hello={this.props.lable1}
                                 path='/trip'
-
-
-
                             />
+
                             <Carditem
                                 src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
                                 text="Explore Explore Explore"
@@ -76,6 +67,8 @@ class Cards extends React.Component {
                                 text="Explore Explore Explore"
                                 label="Trip6"
                                 path='/trip'
+                                hello='relle hello'
+
                             />
                         </ul>
                     </div>

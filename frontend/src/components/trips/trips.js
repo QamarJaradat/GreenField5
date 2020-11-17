@@ -11,8 +11,8 @@ const slideImages = [
 // import ReactDOM from "react-dom";
 // import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 const properties = {
-    duration: 3000,
-    transitionDuration: 1000,
+    duration: 5000,
+    transitionDuration: 400,
     infinite: true,
     indicators: false,
     arrows: true
@@ -31,6 +31,7 @@ class Trip extends React.Component {
         // const { trip } = this.props.match.paras
         // const { fromNotificaions } = this.props.location.state
         // console.log("  ", fromNotificaions)
+        console.log(this.props.location.state.hello)
     }
 
     booktrip() {
@@ -47,7 +48,7 @@ class Trip extends React.Component {
 
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3068/3068706.svg' alt='Night'></img>
-                        <p>number of trip nigths</p>
+                        <p>number of trip nigths </p>
                     </div>
 
                     <div>

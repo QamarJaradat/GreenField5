@@ -1,4 +1,4 @@
-[ //2021-02-03T22:00:00.000+00:00
+[
     {
         "id": 1,
         "image": "https://www.inlocamotion.com/wp-content/uploads/2019/03/nablus-old-city-clock-tower.jpg",
@@ -42,7 +42,6 @@
         "discription": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
     },
     {
-        // !!!
         "id": 4,
         "image": "",
         "tripType": "One Day Trip",
