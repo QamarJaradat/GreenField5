@@ -12,7 +12,7 @@ import Trips from './components/Homepage/Cards'
 import Login from './components/user/login'
 import Trip from './components/trips/trips'
 import Signup from './components/user/signup'
-// import Payment from './components/payment/payment'
+import Payment from './components/payment/payment'
 
 
 
@@ -73,7 +73,7 @@ class App extends React.Component {
               <Route path="/" exact component={Home} />
               <Route path="/trips" exact component={Trips} />
               {/* <Route path="/sign-up" exact component={Signup} /> */}
-              <Route path="/user" exact component={Profile} />
+              <Route path="/user" exact component={Payment} />
               <Route path="/trip" exact component={Trip} />
 
             </Switch>
