@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.10.13",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "react-slideshow-image": "^3.3.1"
   }
 }
