@@ -53,10 +53,17 @@ exports.loginUser = (req, res) => {
             }
             else {
                 var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '5m' })
-                res.header('authToken', token)
+                res.cookie('authToken', token)
                 return res.status(200).send(token)
             }
         }
 
     })
+}
+
+exports.userlogout = (req, res) => {
+    res.cookie('authToken', '')
+    res.status(200).send(req.user)
+
+
 }

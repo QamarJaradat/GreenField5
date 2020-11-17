@@ -3,6 +3,7 @@ import Navbar from './components/Homepage/Navbar';
 import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
 import Profile from './components/user/Profile';
+// import $ from 'jquery'
 
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -26,13 +27,37 @@ class App extends React.Component {
   }
   changeLogInStatus() {
     this.setState({
-      islogin: !this.state.islogin
+      islogin: !this.state.islogin,
+      tokenin: ''
     })
     document.documentElement.scrollTop = 0;
-
   }
 
+  componentDidMount() {
+    this.setState({
+      tokenin: document.cookie
+    })
+
+    //   $.ajax({
+    //     type: "get",
+    //     url: "/check",
+    //     success: function (res) {
+    //       console.log("it's working")
+    //       this.setState({
+    //         tokenin: res.cookies
+    //       })
+    //     },
+    //     error: function (error) {
+
+    //       console.log(error.status)
+
+    //     }
+    //   })
+  }
   render() {
+    if (!this.state.tokenin === '') {
+      console.log('hi')
+    }
     const { islogin } = this.state
     if (islogin) {
       return (
