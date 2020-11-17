@@ -1,5 +1,6 @@
 const express = require('express');
 const routers = express.Router();
+const tripController = require('./Controller/TripsController')
 //User Controller 
 const userController = require('./Controller/UserController')
 routers.post('/signup', userController.signUpUser);
@@ -10,6 +11,8 @@ routers.post('/logout', userController.userlogout)
 const paymentController = require('./Controller/PaymentController')
 routers.post('/payment', paymentController.payment)
 
+routers.get('/gettrips',tripController.tripsList)
+routers.post('/gettrips',tripController.updateTrip)
 
 
 const auth = require('./auth')
