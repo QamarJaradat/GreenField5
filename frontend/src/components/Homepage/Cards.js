@@ -14,11 +14,8 @@ class Cards extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.lable1)
+        document.documentElement.scrollTop = 0;
     }
-
-
-
 
     render() {
         return (
@@ -34,6 +31,8 @@ class Cards extends React.Component {
                                 label={this.props.lable1}
                                 hello={this.props.lable1}
                                 path='/trip'
+                                getup={this.props.getup}
+                            // getup={this.props.getup}
                             />
 
                             <Carditem
@@ -68,6 +67,7 @@ class Cards extends React.Component {
                                 label="Trip6"
                                 path='/trip'
                                 hello='relle hello'
+
 
                             />
                         </ul>
