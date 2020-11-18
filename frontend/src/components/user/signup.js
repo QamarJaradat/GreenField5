@@ -14,19 +14,19 @@ class Signup extends Component {
             conformPassword: '',
             phoneNo: '',
             checked: true,
-            newsCheck:false
+            newsCheck: false
         }
         this.LoginHandler = this.LoginHandler.bind(this)
         this.handelchange = this.handelchange.bind(this)
         this.newsLetter = this.newsLetter.bind(this)
     }
-    newsLetter(){
+    newsLetter() {
         this.setState({
-            newsCheck:!this.state.newsCheck 
+            newsCheck: !this.state.newsCheck
         })
         //alert('Thank you for Subscribing to our News Letter')
-        if(!this.state.newsCheck){document.getElementById("subscribed").innerHTML = "<div class='alert alert-danger' role='alert'>Thank you for Subscribing to our News Letter</div>"}
-        else {document.getElementById("subscribed").innerHTML ="<div></div>" }
+        if (!this.state.newsCheck) { document.getElementById("subscribed").innerHTML = "<div class='alert alert-danger' role='alert'>Thank you for Subscribing to our News Letter</div>" }
+        else { document.getElementById("subscribed").innerHTML = "<div></div>" }
     }
     handelchange(e) {
         this.setState({
@@ -44,7 +44,7 @@ class Signup extends Component {
             var data = {
                 userName: username, userPass: this.state.password,
                 userMail: this.state.email, userNum: this.state.phoneNo,
-                userfirstName:this.state.firstName
+                userfirstName: this.state.firstName
             }
             $.ajax({
                 type: "POST",
@@ -57,8 +57,8 @@ class Signup extends Component {
                 },
                 error: function (error) {
                     if (error.status === 451) {
-                       console.log('451')
-                
+                        console.log('451')
+
                         document.getElementById("emptyname").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your name</div>"
 
                     }
@@ -74,7 +74,7 @@ class Signup extends Component {
                         document.getElementById("emptypass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your Pass</div>"
 
                     }
-                    
+
 
 
                     if (error.status === 406) {
@@ -103,8 +103,8 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
-                            <h4 id="signintitle" style={{ "marginTop": '25px', "text-align": "center" }}>New To Our Website</h4>
-                            <h4 id="signintitle" style={{ "marginTop": '12px', "text-align": "center" }}>Join Us and Signup Here</h4>
+                            <h4 id="signintitle" style={{ "text-align": "center" }}>New To Our Website</h4>
+                            <h4 id="signintitle" style={{ "text-align": "center" }}>Join Us and Signup Here</h4>
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
@@ -129,31 +129,29 @@ class Signup extends Component {
                                 <label>Password</label>
 
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="Password" />
-                               <small id='emptypass'></small>
+                                <small id='emptypass'></small>
                             </div>
                             <div>
                                 <lable>Confirm Password</lable>
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
                                 <small id="matchPass"></small>
                             </div>
-                            <div style={{ "marginTop": '12px', "margin-left": "10%","margin-right": "10%" }}>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={()=>this.newsLetter()}></input>
-                            <div style={{ "marginTop": '12px' }}>
+                            <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
+                                <div style={{ "marginTop": '4px' }}>
 
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1"        ></input>
-                                <label class="form-check-label" for="exampleCheck1">I would like to receive some updates for this website </label>
-                                <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
 
+                                    <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
+                                    <small id="subscribed"></small>
+                                    <br></br>
+
+                                </div>
+
+                            </div>
+                            <div>
+                                <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '4px' }}></input>
 
                                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
-
-                            <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
-                            <small id="subscribed"></small>
-                            </div>
-                            <br></br>
-                            <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-                            <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
-
                             </div>
                         </form>
                     </div>

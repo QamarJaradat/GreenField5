@@ -11,8 +11,9 @@ import Login from './components/user/login'
 import Trip from './components/trips/trips'
 import Signup from './components/user/signup'
 import Payment from './components/payment/payment'
-import Profile from './components/user/Profile';
 
+import Profile from './components/user/Profile';
+import Navbar2 from './components/Homepage/Navbar-login';
 
 
 class App extends React.Component {
@@ -21,18 +22,27 @@ class App extends React.Component {
     this.state = {
       islogin: true,
       hello: 'hello for reeal',
+      isuser: false,
+      tokenin: "",
       testtrips: []
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getup = this.getup.bind(this)
     this.paymentCheck = this.paymentCheck.bind(this)
     this.getTrips = this.getTrips.bind(this)
+    this.changeUserStatus = this.changeUserStatus.bind(this)
 
   }
   changeLogInStatus() {
     this.setState({
       islogin: !this.state.islogin,
       tokenin: ''
+    })
+  }
+  changeUserStatus() {
+    this.setState({
+      isuser: !this.state.isuser,
+
     })
   }
   getTrips = () => {
@@ -121,22 +131,27 @@ class App extends React.Component {
     }
     const { islogin } = this.state
     let comp
+    let nav
     if (islogin) {
       comp = <Route
         path='/sign-up'
         render={(props) => <Signup toggleLogin={this.changeLogInStatus} />}
       />
+
+
     }
     else {
       comp = <Route
         path='/sign-up'
-        render={(props) => <Login toggleLogin={this.changeLogInStatus} hello='hello' />}
+        render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus} hello='hello' />}
       />
     }
+    if (this.state.tokenin) { nav = <Navbar2></Navbar2> }
+    else { nav = <Navbar></Navbar> }
     return (
       <>
         <Router>
-          <Navbar />
+          {nav}
           <Switch>
             {comp}
             <Route

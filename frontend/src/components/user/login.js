@@ -24,8 +24,9 @@ class Login extends React.Component {
       type: "POST",
       url: "/login",
       data: data,
-      success: function (res) {
-        console.log("it's working")
+      success:  (res)=> {
+        console.log(this.props)
+        this.props.toggleuser()
         window.location.href = "/"
       },
       error: function (error) {
