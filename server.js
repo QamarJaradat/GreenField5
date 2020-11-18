@@ -3,6 +3,7 @@ const app = express();
 const routers = require('./routes');
 
 const bodyParser = require('body-parser');
+const flash=require('connect-flash');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
