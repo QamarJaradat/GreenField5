@@ -41,9 +41,6 @@ class Cards extends React.Component {
                                 text="Explore Explore Explore"
                                 label="Trip1"
                                 path='/trip'
-
-
-
                             />
                             <Carditem
                                 src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
