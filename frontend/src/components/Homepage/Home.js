@@ -5,13 +5,24 @@ import Section from './Section';
 import AboutUs from './AboutUs';
 import Cards from './Cards';
 
-function Home() {
-    return (
-        <>
-            <Section />
-            <AboutUs />
-            <Cards />
-        </>
-    )
+class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+    componentDidMount() {
+        document.documentElement.scrollTop = 0;
+    }
+    render() {
+        return (
+            <>
+                <Section />
+                <AboutUs />
+                <Cards lable1={this.props.hello} getup={this.props.getup} />
+            </>
+        )
+    }
 }
 export default Home;

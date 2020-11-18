@@ -15,6 +15,9 @@ class Profile extends React.Component {
   booktrip() {
     console.log('clicked')
   }
+  componentDidMount() {
+    document.documentElement.scrollTop = 0;
+  }
   render() {
     return (
       <div className="hole" >
