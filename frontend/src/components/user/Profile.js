@@ -39,15 +39,15 @@ class Profile extends React.Component {
               <div className='textContainer' >
                  <div>
                       <h4 className="text">Name</h4>
-                      <h6 className="text">Full Name</h6>
+                      <h6 className="text1">Full Name</h6>
                  </div>
                  <div>
                       <h4 className="text">Email</h4>
-                      <h6 className="text">User Mail</h6>
+                      <h6 className="text1">User Mail</h6>
                  </div>
                  <div>
                       <h4 className="text">Phone Number</h4>
-                      <h6 className="text">User Number</h6>
+                      <h6 className="text1">User Number</h6>
                  </div>
               </div>
           </div>
