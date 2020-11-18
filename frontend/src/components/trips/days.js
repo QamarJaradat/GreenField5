@@ -3,7 +3,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const properties = {
-    
+    duration: 9000000000000,
     transitionDuration: 400,
     infinite: true,
     indicators: false,
@@ -21,6 +21,9 @@ class Day extends React.Component {
             ]
         }
     }
+    componentDidMount() {
+
+    }
 
     render() {
         return (
@@ -30,16 +33,16 @@ class Day extends React.Component {
 
                     <div className='inlinediv' style={{ 'width': '55%', 'height': '200px' }}>
                         <div style={{ "borderRadius": "16px 0 16px 0", 'width': '99%', 'height': "35px", 'backgroundColor': " rgb(82, 10, 41)", 'color': 'white', 'paddingTop': '5px' }}>
-                            <h5 style={{ 'marginLeft': '15px' }}>Day1</h5>
+                            <h5 style={{ 'marginLeft': '15px' }}>Day {this.props.dayno}</h5>
                         </div>
 
-                        <p className='pfont' style={{ 'marginTop': '8px' }}> {this.props.discription}
+                        <p className='pfont' style={{ 'marginTop': '8px' }}> {this.props.dayinfo}
                         </p>
                     </div>
                     <div className='inlinediv' style={{ 'width': '44%' }}>
                         <div >
                             <Slide  {...properties}>
-                                {this.state.slideImages.map((item, i) => { return <img className='tripimgs' src={item} key={i} alt='Date'></img> })}
+                                {this.props.imgs.map((item, i) => { return <img className='tripimgs' src={item} key={i} alt='Date'></img> })}
                             </Slide>
                         </div>
                     </div>
