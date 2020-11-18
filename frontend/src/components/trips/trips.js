@@ -81,7 +81,7 @@ class Trip extends React.Component {
                 <Link to={{
                     pathname: '/payment',
                     state: {
-                        tripid: this.props.tripid._id
+                        // tripid: this.props.tripid._id
                     },
                     // paymentCheck: this.props.paymentCheck
                 }}   >

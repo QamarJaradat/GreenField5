@@ -29,6 +29,7 @@ class Payment extends React.Component {
         this.setState({
             tripid: this.props.location.state.tripid
         })
+        console.log(this.state)
     }
 
     checkPayment() {
