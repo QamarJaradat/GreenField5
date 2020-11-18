@@ -12,7 +12,6 @@ class Cards extends React.Component {
             hello: "hello"
         }
     }
-
     componentDidMount() {
         document.documentElement.scrollTop = 0;
     }

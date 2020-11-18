@@ -7,7 +7,7 @@ class Login extends React.Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
 
 
     }
@@ -24,18 +24,28 @@ class Login extends React.Component {
       type: "POST",
       url: "/login",
       data: data,
-      success: function (res) {
-        console.log("it's working")
+      success:  (res)=> {
+        console.log(this.props)
+        this.props.toggleuser()
         window.location.href = "/"
       },
       error: function (error) {
+        if (error.status === 410) {
+          //alert('wrong password')
+          document.getElementById("emptyuser").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
+
+        }
         if (error.status === 404) {
-          alert('user not existed')
+          document.getElementById("logErr").innerHTML = "<div class='alert alert-danger' role='alert'> Invaild Username</div>"
+          //alert('user not existed')
           console.log(error.responseText)
         }
         if (error.status === 400) {
-          alert('wrong password')
+          //alert('wrong password')
+          document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> Wrong Password</div>"
+
         }
+
 
       }
     })
@@ -64,10 +74,13 @@ class Login extends React.Component {
               <div>
                 <label>Your Email</label>
                 <input type="email" className="form-control inputhover" name="email" placeholder="email" onChange={this.handelchange} />
+                <small id="logErr"></small>
+                <small id="emptyuser"></small>
               </div>
               <div>
                 <label>Password</label>
                 <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="password" />
+                <small id="logPass"></small>
               </div>
               <div style={{ "marginTop": '12px' }}>
                 <input type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
