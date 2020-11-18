@@ -38,6 +38,7 @@ class App extends React.Component {
       tokenin: document.cookie
     })
 
+
     //   $.ajax({
     //     type: "get",
     //     url: "/check",
