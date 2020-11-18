@@ -19,10 +19,11 @@ class CardItem extends React.Component {
                         pathname: this.props.path,
                         state: {
                             hello: this.props.hello,
-                            helloAgain: this.props.hello
-
+                            helloAgain: this.props.hello,
+                            trip: this.props.trip
                         },
-                        getup: this.props.getup
+                        getup: this.props.getup,
+                        paymentCheck: this.props.paymentCheck
                     }}>
                         <figure className='cards__item__pic-wrap' data-category={this.props.label}>
                             <img
