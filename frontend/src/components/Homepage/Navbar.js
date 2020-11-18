@@ -46,13 +46,6 @@ function Navbar() {
                                 className='nav-links'
                                 onClick={closeMobileMenu}>Trips</Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link
-                                to='/user'
-                                className='nav-links'
-                                onClick={closeMobileMenu}
-                            >User</Link>
-                        </li>
                         <li>
                             <Link
                                 to='/sign-up'
