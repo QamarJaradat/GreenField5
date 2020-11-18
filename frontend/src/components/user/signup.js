@@ -12,7 +12,8 @@ class Signup extends Component {
             email: '',
             password: '',
             conformPassword: '',
-            phoneNo: ''
+            phoneNo: '',
+            checked: true
         }
         this.LoginHandler = this.LoginHandler.bind(this)
         this.handelchange = this.handelchange.bind(this)
@@ -98,7 +99,7 @@ class Signup extends Component {
 
                                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
                             </div>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1"></input>
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1"        ></input>
                             <label class="form-check-label" for="exampleCheck1">I would like to receive some updates for this website </label>
                         </form>
                     </div>

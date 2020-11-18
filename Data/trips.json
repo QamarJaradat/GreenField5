@@ -18,7 +18,7 @@
             "maximumNumPerTrip": 20,
             "idOfTourist": [],
             "discription": {
-                "day 1": "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
+                "day": "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
             }
         },
         {
@@ -39,7 +39,7 @@
             "maximumNumPerTrip": 40,
             "idOfTourist": [],
             "discription": {
-                "day 1": "The trail starts from the outskirts of Jerusalem to Jericho and the Jordan Valley.It is an amazing experience for climbers and nature lovers. In addition to climbing and walking being a beautiful and exciting sport, you can also visit the Monastery of Saint George in Cosiba.The path is considered one of the most beautiful paths in Palestine and is full of natural and geological landscapes, so that the walker is dazzled by a painting of the mesmerizing rock formations and the curves of caves where the rocky pile lives, and green trees extend on both sides of the canal to form an oasis in the wadi desert."
+                "day": "The trail starts from the outskirts of Jerusalem to Jericho and the Jordan Valley.It is an amazing experience for climbers and nature lovers. In addition to climbing and walking being a beautiful and exciting sport, you can also visit the Monastery of Saint George in Cosiba.The path is considered one of the most beautiful paths in Palestine and is full of natural and geological landscapes, so that the walker is dazzled by a painting of the mesmerizing rock formations and the curves of caves where the rocky pile lives, and green trees extend on both sides of the canal to form an oasis in the wadi desert."
             }
         },
         {
@@ -61,7 +61,7 @@
             "maximumNumPerTrip": 25,
             "idOfTourist": [],
             "discription": {
-                "day 1": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
+                "day": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
             }
         },
         {
@@ -82,7 +82,7 @@
             "maximumNumPerTrip": 35,
             "idOfTourist": [],
             "discription": {
-                "day 1": "A nature reserve located between the foothills of two mountains in between the governorates of Salfit and Qalqilya.Most of the reserve lands are located within the lands of Deir Istia, north of Salfit Governorate.You will enjoy hiking and walking through the beautiful valley area , and eat traditional breakfast and lunch cooked traditionally on wood fire. "
+                "1": "A nature reserve located between the foothills of two mountains in between the governorates of Salfit and Qalqilya.Most of the reserve lands are located within the lands of Deir Istia, north of Salfit Governorate.You will enjoy hiking and walking through the beautiful valley area , and eat traditional breakfast and lunch cooked traditionally on wood fire. "
             }
         },
         {
@@ -131,11 +131,11 @@
             "maximumNumPerTrip": 40,
             "idOfTourist": [],
             "discription": {
-                "day 1": "We will start our trip by visiting The Terraces of the Baháʼí Faith. These gardens extend over the Carmel Mount. In the center of the Baha'i garden , there is  a building with a golden dome, and it is the duty of a Baha'i missionary who was killed in 1850, and his remains were transferred to Haifa.You will enjoy an Awesome view of the city from the top of the hill.",
-                "day 2": "On the second day,the journey begins at Tell al-Samak, which is considered one of the archaeological sites rich in important discoveries.Tal al-Samak is located on the seashore, 1.3 km southwest of Mount Carmel, and on the old main road running from Caesarea to Acre. After That we will go to the Sculptures Garden.A wonderful garden in the city of Haifa overlooking the picturesque port of Haifa, and the most distinctive feature of this park are the wonderful bronze statues scattered throughout the park.",
-                "day 3": "On that day we will visit Mount Carmel, enjoy the beautiful overlooks, and walk on the hanging bridges in the mountain.The UNESCO Carmel Reserve, have the Carmel National Park.Choose one of the many trails within the park, or cycle or hike your way to panoramic views of Haifa and the surrounding valleys.",
-                "day 4": "We will be visiting the city of Akka , going to the Fence near the coast and enjoying the sea view. On that day we will be visiting all the tourist places related to Ahmed El-Jazzar. The mosque , castles and the Crusader city.  The old city market and Khan Al-Omran will be on that day list. ",
-                "day 5": "On the final day we will go to Jafa, one of the oldest and most important cities in historic Palestine. It is located on the eastern coast of the Mediterranean Sea.Visiting the city will be the best way to end the cost trip. By visiting the oranges fields , the old city and market. You will have an unforgettable lunch at a popular fish restaurant. "
+                "1": "We will start our trip by visiting The Terraces of the Baháʼí Faith. These gardens extend over the Carmel Mount. In the center of the Baha'i garden , there is  a building with a golden dome, and it is the duty of a Baha'i missionary who was killed in 1850, and his remains were transferred to Haifa.You will enjoy an Awesome view of the city from the top of the hill.",
+                "2": "On the second day,the journey begins at Tell al-Samak, which is considered one of the archaeological sites rich in important discoveries.Tal al-Samak is located on the seashore, 1.3 km southwest of Mount Carmel, and on the old main road running from Caesarea to Acre. After That we will go to the Sculptures Garden.A wonderful garden in the city of Haifa overlooking the picturesque port of Haifa, and the most distinctive feature of this park are the wonderful bronze statues scattered throughout the park.",
+                "3": "On that day we will visit Mount Carmel, enjoy the beautiful overlooks, and walk on the hanging bridges in the mountain.The UNESCO Carmel Reserve, have the Carmel National Park.Choose one of the many trails within the park, or cycle or hike your way to panoramic views of Haifa and the surrounding valleys.",
+                "4": "We will be visiting the city of Akka , going to the Fence near the coast and enjoying the sea view. On that day we will be visiting all the tourist places related to Ahmed El-Jazzar. The mosque , castles and the Crusader city.  The old city market and Khan Al-Omran will be on that day list. ",
+                "5": "On the final day we will go to Jafa, one of the oldest and most important cities in historic Palestine. It is located on the eastern coast of the Mediterranean Sea.Visiting the city will be the best way to end the cost trip. By visiting the oranges fields , the old city and market. You will have an unforgettable lunch at a popular fish restaurant. "
             }
         }
     ]
