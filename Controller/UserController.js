@@ -7,8 +7,15 @@ exports.signUpUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.userPass, salt)
     // User Data when Signing up
+    console.log(req.body)
     userMail = req.body.userMail
     userpas = req.body.userPass
+    if (!req.body.userfirstName) {
+        return res.status(451).send('error')
+
+
+    }
+
     if (!userpas) {
         return res.status(421).send('error')
 
