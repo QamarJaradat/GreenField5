@@ -13,8 +13,8 @@ exports.updateTrip = (req, res) => {
             res.send(err);
         if (trip) {
 
-            trip.touristid.push(req.body.touristid);
-            trips.updateOne({ _id: trip._id }, { touristid: trip.touristid }, (err, data) => {
+            trip.idOfTourist.push(req.body.touristid);
+            trips.updateOne({ _id: trip._id }, { idOfTourist: trip.idOfTourist }, (err, data) => {
 
                 trips.findOne({ _id: req.body.id }, (err, trip) => {
                     if (err)
