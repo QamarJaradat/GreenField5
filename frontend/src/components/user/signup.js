@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './login.css';
 import $ from 'jquery'
 
@@ -13,12 +13,21 @@ class Signup extends Component {
             password: '',
             conformPassword: '',
             phoneNo: '',
-            checked: true
+            checked: true,
+            newsCheck:false
         }
         this.LoginHandler = this.LoginHandler.bind(this)
         this.handelchange = this.handelchange.bind(this)
+        this.newsLetter = this.newsLetter.bind(this)
     }
-
+    newsLetter(){
+        this.setState({
+            newsCheck:!this.state.newsCheck 
+        })
+        //alert('Thank you for Subscribing to our News Letter')
+        if(!this.state.newsCheck){document.getElementById("subscribed").innerHTML = "<div class='alert alert-danger' role='alert'>Thank you for Subscribing to our News Letter</div>"}
+        else {document.getElementById("subscribed").innerHTML ="<div></div>" }
+    }
     handelchange(e) {
         this.setState({
             [e.target.name]: e.target.value
@@ -77,6 +86,7 @@ class Signup extends Component {
         }
     }
     render() {
+
         return (
             <div className="test">
 
@@ -85,7 +95,8 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
-                            <h3 id="signintitle">New to our website join us and signup here</h3>
+                            <h4 id="signintitle" style={{ "marginTop": '25px', "text-align": "center" }}>New To Our Website</h4>
+                            <h4 id="signintitle" style={{ "marginTop": '12px', "text-align": "center" }}>Join Us and Signup Here</h4>
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
@@ -97,31 +108,33 @@ class Signup extends Component {
 
                             <div>
                                 <label>Email</label>
-                                <input type="email" className="form-control inputhover" onChange={this.handelchange} name="email" placeholder="email" />
+                                <input type="email" className="form-control inputhover" onChange={this.handelchange} name="email" placeholder="Email" />
                                 <small id="userCreated"> </small>
                                 <small id="emptyusermail"> </small>
                             </div>
                             <div>
                                 <label>Phone Number</label>
-                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name='phoneNo' placeholder="Your phone Number" />
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name='phoneNo' placeholder="Phone Number" />
                             </div>
                             <div>
                                 <label>Password</label>
-                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="password" />
+                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="Password" />
                                <small id='emptypass'></small>
                             </div>
                             <div>
                                 <lable>Confirm Password</lable>
-                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="confirm password" />
+                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
                                 <small id="matchPass"></small>
                             </div>
+                            <div style={{ "marginTop": '12px', "margin-left": "10%","margin-right": "10%" }}>
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={()=>this.newsLetter()}></input>
                             <div style={{ "marginTop": '12px' }}>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1"        ></input>
-                            <label class="form-check-label" for="exampleCheck1">I would like to receive some updates for this website </label>
-                                <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-
-
-                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+                            <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
+                            <small id="subscribed"></small>
+                            </div>
+                            <br></br>
+                            <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+                            <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
                             </div>
                         </form>
                     </div>
