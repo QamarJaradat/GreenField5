@@ -11,9 +11,9 @@ routers.post('/logout', userController.userlogout)
 const paymentController = require('./Controller/PaymentController')
 routers.post('/payment', paymentController.payment)
 
-routers.get('/gettrips',tripController.tripsList)
-routers.post('/gettrips',tripController.updateTrip)
-
+routers.get('/gettrips', tripController.tripsList)
+routers.post('/gettrips', tripController.updateTrip)
+routers.get('/filldata', tripController.fillTrips)
 
 const auth = require('./auth')
 routers.get('/check', auth, (req, res) => {

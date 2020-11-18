@@ -13,14 +13,18 @@ db.once('open', function () {
 //Schemas
 let tripsSchema = mongoose.Schema({
     id: { type: Number, unique: true },
-    touristid: [Number],
-    images: [String],
-    price: Number,
-    discription: [String],
-    tourDate: Date,
+    image: [[String]],
+    tripType: String,
+    name: String,
+    price: String,
+    date: Date,
     deadline: Date,
-    tourGuide: String,
-    maximumNumPerTour: Number,
+    tripGuide: String,
+    maximumNumPerTrip: Number,
+    idOfTourist: [String],
+    discription: {
+        type: Object
+    },
 })
 let userSchema = mongoose.Schema({
     id: { type: Number, unique: true, sparse: true },
