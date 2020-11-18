@@ -3,7 +3,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const properties = {
-    duration: 5000,
+    
     transitionDuration: 400,
     infinite: true,
     indicators: false,

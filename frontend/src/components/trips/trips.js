@@ -1,6 +1,7 @@
 import React from "react";
 import './trips.css';
 import Day from './days'
+import { data } from "jquery";
 class Trip extends React.Component {
 
     constructor(props) {
@@ -19,6 +20,7 @@ class Trip extends React.Component {
         document.documentElement.scrollTop = 0;
 
     }
+    
 
     booktrip() {
         console.log('clicked ', this.props)

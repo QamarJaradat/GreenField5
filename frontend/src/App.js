@@ -3,7 +3,7 @@ import Navbar from './components/Homepage/Navbar';
 import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
 // import Profile from './components/user/Profile';
-// import $ from 'jquery'
+import $ from 'jquery'
 
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -25,6 +25,7 @@ class App extends React.Component {
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getup = this.getup.bind(this)
+    this.getTrips = this.getTrips.bind(this)
 
   }
   changeLogInStatus() {
@@ -33,6 +34,19 @@ class App extends React.Component {
       tokenin: ''
     })
   }
+  getTrips(){
+    $.ajax({
+        type:"GET",
+        url:"/gettrips",
+        success: function(res){
+            console.log("my first ajax request yay"+res)
+        },
+        error:function(err){
+            console.error(err)
+        }
+    })
+  }
+  
 
   getup() {
     console.log('all the way from the app, Hi!')
@@ -42,6 +56,7 @@ class App extends React.Component {
       tokenin: document.cookie
     })
     document.documentElement.scrollTop = 0;
+    this.getTrips()
 
   }
   render() {
