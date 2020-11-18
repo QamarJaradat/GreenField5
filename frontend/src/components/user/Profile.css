@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 .imgdiv{
 height:95vh;
-background-image:url('https://www.xapt.com/wp-content/uploads/2016/11/Light-Gray-bg-erp-crm-business-software-2.jpg');
+background-image:url('https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_full.jpg');
 background-size: cover;
 background-position: center;
 }
@@ -24,10 +24,10 @@ html, body {
     width: 50%;
 }
 .textContainer{
-      text-align: center;
-      /* margin-left: 10%;
-      margin-right: 10%; */
-  }
+    text-align: center;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+}
 
 .text{
     font-family: 'Roboto Mono', monospace;
@@ -36,7 +36,17 @@ html, body {
     background-color: rgba(255, 255, 255, 0.603);
     height:95vh;
     padding-top: 10%;
+    flex: 25%;
+    padding: 20px;
 }
+
+#row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
 /* .imgs{
     width: 60px;
 }

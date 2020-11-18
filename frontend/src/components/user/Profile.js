@@ -22,8 +22,11 @@ class Profile extends React.Component {
   render() {
     return (
       <div className="imgdiv">
-      <div className="row">
+      <div className="row" id="row">
           <div id="profile" className="col-sm-4 right" >
+          <br></br>
+          <br></br>
+          <br></br>
               <div className='picContainer'>
               <img className="img1"
                 src="https://media.npr.org/assets/img/2016/11/23/getty-480815249_wide-b7dfe122319c47631b74ce1a291f6e42df61f74b.jpg?s=1400"
@@ -48,9 +51,11 @@ class Profile extends React.Component {
                  </div>
               </div>
           </div>
-          <div className="col left" >
-          <div className='cards__container'>
+          <div className="col left" id="column">
+          <div className='cards__container' id="cards__container1">
                     <div className="cards__wrapper">
+                    <br></br>
+          <br></br>
                     <div className="textContainer">
                         <h4 className="text">Booked Trips</h4>
                     </div>
