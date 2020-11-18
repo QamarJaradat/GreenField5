@@ -4,7 +4,8 @@ import './A-Style.css'
 function AboutUs() {
     return (
         <div className='cards'>
-            <h3>About us Paragraph</h3>
+            <h1 className="qoute"> " It's better to see something once</h1>
+            <h1 className="qoute"> than to hear about it a hundred times. "</h1>
         </div>
     )
 }
