@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './components/Homepage/Navbar';
 import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
-// import Profile from './components/user/Profile';
 // import $ from 'jquery'
 
 
@@ -13,6 +12,7 @@ import Login from './components/user/login'
 import Trip from './components/trips/trips'
 import Signup from './components/user/signup'
 import Payment from './components/payment/payment'
+import Profile from './components/user/Profile';
 
 
 
@@ -79,7 +79,7 @@ class App extends React.Component {
             {/* <Route path="/" exact component={Home} /> */}
             {/* <Route path="/trips" exact component={Trips} /> */}
             <Route path="/sign-up" exact component={Signup} />
-            <Route path="/user" exact component={Payment} />
+            <Route path="/user" exact component={Profile} />
             <Route path="/trip" exact component={Trip} />
 
           </Switch>
