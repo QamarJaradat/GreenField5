@@ -46,7 +46,9 @@ class Payment extends React.Component {
                     method:'POST',
                     url:'/gettrips',
                     data:{
+                        // user
                         trips:this.state.trips,
+                        // trip
                         idOfTourist:this.state.idOfTourist
                     },
                     success: function(updatedData){
