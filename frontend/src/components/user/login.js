@@ -46,6 +46,10 @@ class Login extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log(this.props.hello)
+  }
+  componentDidMount() {
+    document.documentElement.scrollTop = 0;
   }
   render() {
     return (

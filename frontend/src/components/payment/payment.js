@@ -22,6 +22,9 @@ class Payment extends React.Component {
         })
         // console.log(e.target.value)
     }
+    componentDidMount() {
+        document.documentElement.scrollTop = 0;
+    }
 
     checkPayment() {
         var data = {
