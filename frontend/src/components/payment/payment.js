@@ -8,7 +8,9 @@ class Payment extends React.Component {
         this.state = {
             cvv: '',
             edate: '',
-            ccnumber: ''
+            ccnumber: '',
+            trips:'',
+            idOfTourist:''
         }
 
         this.handelchange = this.handelchange.bind(this)
@@ -37,9 +39,25 @@ class Payment extends React.Component {
             url: '/payment',
             data: data,
             success: function (res) {
+                //another ajax to update db !!
                 console.log(res)
-                alert('enjoy your trip')
-
+                //alert('enjoy your trip')
+                $.ajax({
+                    method:'POST',
+                    url:'/gettrips',
+                    data:{
+                        trips:this.state.trips,
+                        idOfTourist:this.state.idOfTourist
+                    },
+                    success: function(updatedData){
+                        if(updatedData.statusCode === 200){
+                            console.log(updatedData)
+                            alert('Data updated successfully !');
+                        } else {
+                            alert('Data not updated');
+                        }
+                    }
+                })
             },
             error: function (err) {
                 if (err.status === 406)
