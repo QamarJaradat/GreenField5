@@ -43,7 +43,8 @@ class Signup extends Component {
             var username = this.state.firstName + " " + this.state.lastName
             var data = {
                 userName: username, userPass: this.state.password,
-                userMail: this.state.email, userNum: this.state.phoneNo
+                userMail: this.state.email, userNum: this.state.phoneNo,
+                userfirstName:this.state.firstName
             }
             $.ajax({
                 type: "POST",
@@ -55,7 +56,13 @@ class Signup extends Component {
 
                 },
                 error: function (error) {
-                    
+                    if (error.status === 451) {
+                       console.log('451')
+                
+                        document.getElementById("emptyname").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your name</div>"
+
+                    }
+
                     if (error.status === 411) {
                         //alert('wrong password')
                         document.getElementById("emptyusermail").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
@@ -63,10 +70,11 @@ class Signup extends Component {
                     }
 
                     if (error.status === 421) {
-                        
+
                         document.getElementById("emptypass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your Pass</div>"
 
                     }
+                    
 
 
                     if (error.status === 406) {
@@ -100,6 +108,7 @@ class Signup extends Component {
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
+                                <small id="emptyname"> </small>
                             </div>
                             <div>
                                 <label>Last Name</label>
@@ -118,6 +127,7 @@ class Signup extends Component {
                             </div>
                             <div>
                                 <label>Password</label>
+
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="Password" />
                                <small id='emptypass'></small>
                             </div>
@@ -129,12 +139,21 @@ class Signup extends Component {
                             <div style={{ "marginTop": '12px', "margin-left": "10%","margin-right": "10%" }}>
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={()=>this.newsLetter()}></input>
                             <div style={{ "marginTop": '12px' }}>
+
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1"        ></input>
+                                <label class="form-check-label" for="exampleCheck1">I would like to receive some updates for this website </label>
+                                <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+
+
+                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+
                             <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
                             <small id="subscribed"></small>
                             </div>
                             <br></br>
                             <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
                             <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+
                             </div>
                         </form>
                     </div>
