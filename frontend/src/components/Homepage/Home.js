@@ -16,12 +16,11 @@ class Home extends React.Component {
         document.documentElement.scrollTop = 0;
     }
     render() {
-        console.log(this.props.paymentCheck)
         return (
             <>
                 <Section />
                 <AboutUs />
-                <Cards lable1={this.props.hello} getup={this.props.getup} trip={this.props.trip} paymentCheck={this.props.paymentCheck} />
+                <Cards lable1={this.props.hello} testtrips={this.props.testtrips} getup={this.props.getup} trip={this.props.trip} paymentCheck={this.props.paymentCheck} />
             </>
         )
     }

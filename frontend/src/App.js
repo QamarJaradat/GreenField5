@@ -3,7 +3,7 @@ import Navbar from './components/Homepage/Navbar';
 import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
 // import Profile from './components/user/Profile';
-// import $ from 'jquery'
+import $ from 'jquery'
 
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -100,11 +100,13 @@ class App extends React.Component {
           1: "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
         }
       }
-      ]
+      ],
+      testtrips: []
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getup = this.getup.bind(this)
     this.paymentCheck = this.paymentCheck.bind(this)
+    this.getTrips = this.getTrips.bind(this)
 
   }
   changeLogInStatus() {
@@ -113,15 +115,38 @@ class App extends React.Component {
       tokenin: ''
     })
   }
+  getTrips = () => {
+    var alltrips = []
+    $.ajax({
+      type: "GET",
+      url: "/gettrips",
+      success: (res) => {
+        for (var i in res) {
+          console.log(res[i])
+          alltrips.push(res[i])
+
+        }
+        console.log("my first ajax request yay" + alltrips)
+        this.setState({
+          testtrips: alltrips
+        })
+      },
+      error: function (err) {
+        console.error(err)
+      }
+    })
+  }
+
 
   getup() {
-    console.log('all the way from the app, Hi!')
+    console.log('all the way from the app, Hi!', this.state.testtrips)
   }
   componentDidMount() {
     this.setState({
       tokenin: document.cookie
     })
     document.documentElement.scrollTop = 0;
+    this.getTrips()
 
   }
 
@@ -154,11 +179,11 @@ class App extends React.Component {
             {comp}
             <Route
               path="/"
-              exact render={(props) => <Home getup={this.getup} paymentCheck={this.paymentCheck} hello={this.state.hello} trip={this.state.thetrip} />}
+              exact render={(props) => <Home getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} hello={this.state.hello} trip={this.state.thetrip} />}
             />
             <Route
               path="/trips"
-              render={(props) => <Trips getup={this.getup} paymentCheck={this.paymentCheck} lable1={this.state.hello} trip={this.state.thetrip} />}
+              render={(props) => <Trips getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} lable1={this.state.hello} trip={this.state.thetrip} />}
             />
             {/* <Route path="/" exact component={Home} /> */}
             {/* <Route path="/trips" exact component={Trips} /> */}

@@ -23,12 +23,13 @@ class Trip extends React.Component {
         // const { fromNotificaions } = this.props.location.state
         // console.log("  ", fromNotificaions)
         console.log(this.props.location.state.trip)
-        console.log(this.props.location)
-        this.props.location.getup()
+        console.log(this.props.location.state)
+        // this.props.location.getup()
 
         document.documentElement.scrollTop = 0;
 
     }
+
 
     booktrip() {
         console.log('clicked ')
@@ -36,7 +37,6 @@ class Trip extends React.Component {
 
     }
     render() {
-        // console.log(this.props.location)
         return (
             <div >
                 <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>

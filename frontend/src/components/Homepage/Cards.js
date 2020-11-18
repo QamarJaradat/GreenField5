@@ -18,7 +18,7 @@ class Cards extends React.Component {
     }
 
     render() {
-        console.log(this.props.paymentCheck)
+        console.log(this.props.testtrips)
         return (
             <div className='cards'>
                 <h1>Check out our Trips</h1>
@@ -26,7 +26,21 @@ class Cards extends React.Component {
                     <div className="cards__wrapper">
                         <ul className="cards__items">
                             {/* EDIT HERE */}
-                            <Carditem
+                            {this.props.testtrips.slice(0, 3).map((trip) =>
+                                <Carditem
+                                    src={trip.image[0][0]}
+                                    // text={this.props.trip[0].explor}
+                                    label={trip.name}
+                                    text="Explore Explore Explore"
+
+                                    // hello={this.props.lable1}
+                                    path='/trip'
+                                    // getup={this.props.getup}
+                                    trip={trip}
+                                    paymentCheck={this.props.paymentCheck}
+
+                                />)}
+                            {/* <Carditem
                                 src={this.props.trip[0].image[0][0]}
                                 text={this.props.trip[0].explor}
                                 label={this.props.trip[0].name}
@@ -34,12 +48,11 @@ class Cards extends React.Component {
                                 path='/trip'
                                 getup={this.props.getup}
                                 trip={this.props.trip[0]}
-                                // getup={this.props.getup}
                                 paymentCheck={this.props.paymentCheck}
 
-                            />
+                            /> */}
 
-                            <Carditem
+                            {/* <Carditem
                                 src={this.props.trip[1].image[0][0]}
                                 text={this.props.trip[1].explor}
                                 label={this.props.trip[1].name}
@@ -48,37 +61,31 @@ class Cards extends React.Component {
                                 getup={this.props.getup}
                                 trip={this.props.trip[1]}
                                 paymentCheck={this.props.paymentCheck}
-                            // getup={this.props.getup}
-                            />
-                            <Carditem
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
+                            /> */}
+                            {/* <Carditem
+                                src={this.props.testtrips[0].image[0][0]}
                                 text="Explore Explore Explore"
-                                label="Trip3"
+                                label={this.props.trip[0].testtrips}
                                 path='/trip'
-                            />
+                                testtrips={this.props.testtrips}
+                            /> */}
                         </ul>
                         <ul className="cards__items">
-                            <Carditem
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                                text="Explore Explore Explore"
-                                label="Trip4"
-                                path='/trip'
-                            />
-                            <Carditem
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                                text="Explore Explore Explore"
-                                label="Trip5"
-                                path='/trip'
-                            />
-                            <Carditem
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                                text="Explore Explore Explore"
-                                label="Trip6"
-                                path='/trip'
-                                hello='relle hello'
+                            {this.props.testtrips.slice(3, 5).map((trip) =>
+                                <Carditem
+                                    src={trip.image[0][0]}
+                                    // text={this.props.trip[0].explor}
+                                    label={trip.name}
+                                    // hello={this.props.lable1}
+                                    text="Explore Explore Explore"
 
+                                    path='/trip'
+                                    // getup={this.props.getup}
+                                    trip={trip}
+                                    paymentCheck={this.props.paymentCheck}
 
-                            />
+                                />)}
+
                         </ul>
                     </div>
                 </div>

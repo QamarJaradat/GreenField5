@@ -14,12 +14,13 @@ class CardItem extends React.Component {
         return (
 
             <>
-                <li className='cards__item'>
+                <li className='cards__item' style={{ "backgroundColor": 'white' }}>
                     <Link className='cards__item__link' to={{
                         pathname: this.props.path,
                         state: {
-                            hello: this.props.hello,
-                            helloAgain: this.props.hello,
+                            // hello: this.props.hello,
+                            // helloAgain: this.props.hello,
+                            // trip: this.props.trip,
                             trip: this.props.trip
                         },
                         getup: this.props.getup,
