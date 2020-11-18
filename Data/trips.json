@@ -18,7 +18,7 @@
             "maximumNumPerTrip": 20,
             "idOfTourist": [],
             "discription": {
-                "day": "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
+                "1": "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
             }
         },
         {
@@ -39,7 +39,7 @@
             "maximumNumPerTrip": 40,
             "idOfTourist": [],
             "discription": {
-                "day": "The trail starts from the outskirts of Jerusalem to Jericho and the Jordan Valley.It is an amazing experience for climbers and nature lovers. In addition to climbing and walking being a beautiful and exciting sport, you can also visit the Monastery of Saint George in Cosiba.The path is considered one of the most beautiful paths in Palestine and is full of natural and geological landscapes, so that the walker is dazzled by a painting of the mesmerizing rock formations and the curves of caves where the rocky pile lives, and green trees extend on both sides of the canal to form an oasis in the wadi desert."
+                "1": "The trail starts from the outskirts of Jerusalem to Jericho and the Jordan Valley.It is an amazing experience for climbers and nature lovers. In addition to climbing and walking being a beautiful and exciting sport, you can also visit the Monastery of Saint George in Cosiba.The path is considered one of the most beautiful paths in Palestine and is full of natural and geological landscapes, so that the walker is dazzled by a painting of the mesmerizing rock formations and the curves of caves where the rocky pile lives, and green trees extend on both sides of the canal to form an oasis in the wadi desert."
             }
         },
         {
@@ -61,7 +61,7 @@
             "maximumNumPerTrip": 25,
             "idOfTourist": [],
             "discription": {
-                "day": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
+                "1": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
             }
         },
         {
@@ -123,7 +123,7 @@
                 ]
             ],
             "tripType": "4 night & 5 days Trip",
-            "name": "The Cost Trip",
+            "name": "The Coast Trip",
             "price": "150 JD",
             "date": "2020-12-10T00:00:00.000+00:00",
             "deadLine": "2020-11-09T00:00:00.000+00:00",
