@@ -1,5 +1,6 @@
 import React from "react";
 import './trips.css';
+import { Link } from 'react-router-dom';
 import Day from './days'
 class Trip extends React.Component {
 
@@ -77,12 +78,18 @@ class Trip extends React.Component {
 
                     )}
                 </div>
-
-                <div style={{ 'display': 'block' }}>
-                    <p align="center" style={{ 'marginTop': '60px' }}>
-                        <input className='btn btn-dark' type="button" value="Book this trip" onClick={this.booktrip} />
-                    </p>
-                </div>
+                <Link to={{
+                    pathname: '/payment',
+                    state: {
+                        // tripid: this.props.tripid._id
+                    },
+                    // paymentCheck: this.props.paymentCheck
+                }}   >
+                    <div style={{ 'display': 'block' }}>
+                        <p align="center" style={{ 'marginTop': '60px' }}>
+                            <input className='btn btn-dark' type="button" value="Book this trip" />
+                        </p>
+                    </div></Link>
             </div>
         )
     }

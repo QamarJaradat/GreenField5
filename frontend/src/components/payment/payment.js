@@ -9,8 +9,8 @@ class Payment extends React.Component {
             cvv: '',
             edate: '',
             ccnumber: '',
-            trips:'',
-            idOfTourist:''
+            tripid: '',
+            idOfTourist: ''
         }
 
         this.handelchange = this.handelchange.bind(this)
@@ -26,6 +26,10 @@ class Payment extends React.Component {
     }
     componentDidMount() {
         document.documentElement.scrollTop = 0;
+        this.setState({
+            tripid: this.props.location.state.tripid
+        })
+        console.log(this.state)
     }
 
     checkPayment() {
@@ -43,16 +47,14 @@ class Payment extends React.Component {
                 console.log(res)
                 //alert('enjoy your trip')
                 $.ajax({
-                    method:'POST',
-                    url:'/gettrips',
-                    data:{
-                        // user
-                        trips:this.state.trips,
-                        // trip
-                        idOfTourist:this.state.idOfTourist
+                    method: 'POST',
+                    url: '/gettrips',
+                    data: {
+                        tripid: this.state.tripid,
+                        idOfTourist: this.state.idOfTourist
                     },
-                    success: function(updatedData){
-                        if(updatedData.statusCode === 200){
+                    success: function (updatedData) {
+                        if (updatedData.statusCode === 200) {
                             console.log(updatedData)
                             alert('Data updated successfully !');
                         } else {
@@ -74,7 +76,7 @@ class Payment extends React.Component {
 
     render() {
         return (
-            <div className="imgdiv">
+            <div className="imgdivpay">
                 <div className="row">
                     <div id="payment" className="col-sm-4 right" >
                         <form action="#" className='form1' >
