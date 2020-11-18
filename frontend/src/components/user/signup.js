@@ -38,11 +38,11 @@ class Signup extends Component {
             }
             $.ajax({
                 type: "POST",
-                url: "/signup",
+                url: "/",
                 data: data,
                 success: function (res) {
                     console.log("it's working")
-                    window.location.href = "/"
+                    window.location.href = "/user"
 
                 },
                 error: function (error) {
