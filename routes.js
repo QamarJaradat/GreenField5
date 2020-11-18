@@ -15,7 +15,6 @@ routers.get('/gettrips', tripController.tripsList)
 routers.post('/gettrips', tripController.updateTrip)
 routers.get('/filldata', tripController.fillTrips)
 
-
 const auth = require('./auth')
 routers.get('/check', auth, (req, res) => {
     res.status(200).send(req.user)
