@@ -23,7 +23,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.userid.trips)
+    console.log(this.props.userid)
     var array = []
     if (this.props.userid.trips) {
       // console.log(this.props.userid.trips)
@@ -90,7 +90,7 @@ class Profile extends React.Component {
             <br></br>
             <div className='picContainer'>
               <img className="img1"
-                src="https://media.npr.org/assets/img/2016/11/23/getty-480815249_wide-b7dfe122319c47631b74ce1a291f6e42df61f74b.jpg?s=1400"
+                src="C:\fakepath\8c28b834f2d5dd0b6a740d86b5d6627e.jpg"
                 alt="userPic"
               />
             </div>

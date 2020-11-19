@@ -30,7 +30,7 @@ class Cards extends React.Component {
                                     src={trip.image[0][0]}
                                     // text={this.props.trip[0].explor}
                                     label={trip.name}
-                                    text="Explore Explore Explore"
+                                    text={trip.explore}
                                     // hello={this.props.lable1}
                                     path='/trip'
                                     // getup={this.props.getup}
@@ -48,7 +48,7 @@ class Cards extends React.Component {
                                     // text={this.props.trip[0].explor}
                                     label={trip.name}
                                     // hello={this.props.lable1}
-                                    text="Explore Explore Explore"
+                                    text={trip.explore}
 
                                     path='/trip'
                                     userid={this.props.userid}

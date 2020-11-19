@@ -16,6 +16,7 @@ let tripsSchema = mongoose.Schema({
     image: [[String]],
     tripType: String,
     name: String,
+    explore: String,
     price: String,
     date: Date,
     deadline: Date,
