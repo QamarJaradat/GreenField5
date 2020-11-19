@@ -36,6 +36,7 @@ class Cards extends React.Component {
                                     // getup={this.props.getup}
                                     trip={trip}
                                     paymentCheck={this.props.paymentCheck}
+                                    userid={this.props.userid}
 
                                 />)}
 
@@ -50,6 +51,8 @@ class Cards extends React.Component {
                                     text="Explore Explore Explore"
 
                                     path='/trip'
+                                    userid={this.props.userid}
+
                                     // getup={this.props.getup}
                                     trip={trip}
                                     paymentCheck={this.props.paymentCheck}

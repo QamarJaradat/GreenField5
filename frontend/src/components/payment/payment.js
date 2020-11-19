@@ -29,7 +29,9 @@ class Payment extends React.Component {
         this.setState({
             tripid: this.props.location.state.tripid
         })
-        console.log(this.props.location)
+        console.log(this.props.location.state.tripid, 'trip')
+        console.log(this.props.location.state.userid, 'user')
+
     }
 
     checkPayment() {
@@ -37,6 +39,10 @@ class Payment extends React.Component {
             exDate: this.state.edate,
             creditCard: this.state.ccnumber,
             cvv: this.state.cvv
+        }
+        var paydata = {
+            id: this.props.location.state.tripid,
+            idOfTourist: this.props.location.state.userid
         }
         $.ajax({
             method: 'POST',
@@ -48,15 +54,14 @@ class Payment extends React.Component {
                 //alert('enjoy your trip')
                 $.ajax({
                     method: 'POST',
-                    url: '/gettrips',
-                    data: {
-                        tripid: this.state.tripid,
-                        idOfTourist: this.state.idOfTourist
-                    },
+                    url: '/addtrip',
+                    data: paydata,
                     success: function (updatedData) {
-                        if (updatedData.statusCode === 200) {
+
+                        if (updatedData === 'all update') {
                             console.log(updatedData)
                             alert('Data updated successfully !');
+                            console.log('se you soons')
                         } else {
                             alert('Data not updated');
                         }

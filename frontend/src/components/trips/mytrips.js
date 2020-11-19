@@ -97,25 +97,8 @@ class Trip extends React.Component {
 
                     )}
                 </div>
-                <Link to={{
-                    pathname: this.state.pathname,
-                    state: statedata,
-                    // paymentCheck: this.props.paymentCheck
-                }}   >
-                    <div style={{ 'display': 'block' }}>
-                        <p align="center" style={{ 'marginTop': '60px' }}>
-                            <input className='btn btn-dark' type="button" value="Book this trip"
-                                onClick={() => {
-                                    if (!this.props.location.state.userid) {
-                                        console.log(`you can't book the trip log in first`)
-                                    }
-                                    else {
-                                        // window.location.href = "/payment"
-                                    }
-                                    console.log('pay pay')
-                                }} />
-                        </p>
-                    </div></Link>
+
+                <p align="center" style={{ 'marginTop': '60px' }}>See You Soon!!</p>
             </div >
         )
     }

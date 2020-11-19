@@ -11,7 +11,7 @@ import Login from './components/user/login'
 import Trip from './components/trips/trips'
 import Signup from './components/user/signup'
 import Payment from './components/payment/payment'
-
+import MyTrip from './components/trips/mytrips'
 import Profile from './components/user/Profile';
 import Navbar2 from './components/Homepage/Navbar-login';
 
@@ -106,47 +106,7 @@ class App extends React.Component {
     console.log('payment method')
   }
 
-  checkPayment() {
-    var data = {
-      exDate: this.state.edate,
-      creditCard: this.state.ccnumber,
-      cvv: this.state.cvv
-    }
-    $.ajax({
-      method: 'POST',
-      url: '/payment',
-      data: data,
-      success: function (res) {
-        //another ajax to update db !!
-        console.log(res)
-        //alert('enjoy your trip')
-        $.ajax({
-          method: 'POST',
-          url: '/gettrips',
-          data: {
-            trips: this.state.trips,
-            idOfTourist: this.state.idOfTourist
-          },
-          success: function (updatedData) {
-            if (updatedData.statusCode === 200) {
-              console.log(updatedData)
-              alert('Data updated successfully !');
-            } else {
-              alert('Data not updated');
-            }
-          }
-        })
-      },
-      error: function (err) {
-        if (err.status === 406)
-          alert('Credit Card Date Expired')
-        if (err.status === 401)
-          alert('you enterd wrong information')
 
-
-      }
-    })
-  }
   render() {
 
     const { islogin } = this.state
@@ -182,11 +142,11 @@ class App extends React.Component {
             {comp}
             <Route
               path="/"
-              exact render={(props) => <Home getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} hello={this.state.hello} trip={this.state.thetrip} />}
+              exact render={(props) => <Home getup={this.getup} userid={this.state.userid} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} hello={this.state.hello} trip={this.state.thetrip} />}
             />
             <Route
               path="/trips"
-              render={(props) => <Trips getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} lable1={this.state.hello} trip={this.state.thetrip} />}
+              render={(props) => <Trips userid={this.state.userid} getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} lable1={this.state.hello} trip={this.state.thetrip} />}
             />
             {/* <Route path="/" exact component={Home} /> */}
             {/* <Route path="/trips" exact component={Trips} /> */}
@@ -194,6 +154,8 @@ class App extends React.Component {
             <Route path="/user" exact render={(props) => <Profile userid={this.state.userid} />}
             />
             <Route path="/trip" exact component={Trip} />
+            <Route path="/mytrip" exact component={MyTrip} />
+
             <Route path="/payment" exact component={Payment} />
 
           </Switch>

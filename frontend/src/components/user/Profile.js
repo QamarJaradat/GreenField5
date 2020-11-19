@@ -1,7 +1,7 @@
 import React from "react";
 import './Profile.css';
 import Carditem from './UserCarditem';
-// import $ from 'jquery'
+import $ from 'jquery'
 // import { List, ListItem, ListItemContent } from 'react-mdl';
 // import ReactDOM from "react-dom";
 // import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
@@ -12,7 +12,8 @@ class Profile extends React.Component {
     super(props)
     this.state = {
       usename: '',
-      useremail: ''
+      useremail: '',
+      mytrips: ''
     }
     this.booktrip = this.booktrip.bind(this)
   }
@@ -21,6 +22,31 @@ class Profile extends React.Component {
     console.log('clicked')
   }
 
+  componentDidMount() {
+    console.log(this.props.userid.trips)
+    var array = []
+    if (this.props.userid.trips) {
+      // console.log(this.props.userid.trips)
+      var mytrips = this.props.userid.trips
+      for (var i in mytrips) {
+        $.ajax({
+          type: "POST",
+          url: "/getmytrips",
+          data: { id: mytrips[i] },
+          success: (res) => {
+            console.log(res)
+            array.push(res)
+            this.setState({
+              mytrips: array
+            })
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+      }
+    }
+  }
   componentWillMount() {
     document.documentElement.scrollTop = 0;
     // $.get('/getuserinfo', { data: this.props.userid })
@@ -28,17 +54,28 @@ class Profile extends React.Component {
   }
   render() {
     let cards
-    if (this.props.trips) {
-      cards = <div>
-        {this.props.trips.slice(3, 5).map((trip) =>
+    if (this.state.mytrips) {
+      cards = <div> <ul className="cards__items">
+        {this.state.mytrips.slice(0, 3).map((trip) =>
           <Carditem
             src={trip.image[0][0]}
             label={trip.name}
             text="Explore Explore Explore"
-            path='/trip'
+            path='/mytrip'
             trip={trip}
             paymentCheck={this.props.paymentCheck}
-          />)}</div>
+          />)}</ul>
+        <ul className="cards__items">
+          {this.state.mytrips.slice(3, 5).map((trip) =>
+            <Carditem
+              src={trip.image[0][0]}
+              label={trip.name}
+              text="Explore Explore Explore"
+              path='/mytrip'
+              trip={trip}
+              paymentCheck={this.props.paymentCheck}
+            />)}</ul>
+      </div>
 
     }
     else {
@@ -84,22 +121,7 @@ class Profile extends React.Component {
                   <h4 className="text">Booked Trips</h4>
                 </div>
                 <br></br>
-                <ul className="cards__items">
-                  {cards}
-
-                  {/* <Carditem
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                    text="Explore Explore Explore"
-                    label="Trip2"
-                    path='/trip'
-                  />
-                  <Carditem
-                    src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                    text="Explore Explore Explore"
-                    label="Trip3"
-                    path='/trip'
-                  /> */}
-                </ul>
+                {cards}
               </div>
             </div>
           </div>

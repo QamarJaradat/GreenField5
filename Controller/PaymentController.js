@@ -1,5 +1,4 @@
 const PaymentModel = require('../DataModel').payment
-const UserModel = require('../DataModel').users
 
 const auth = require('../auth')
 
