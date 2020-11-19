@@ -84,47 +84,7 @@ class App extends React.Component {
     console.log('payment method')
   }
 
-  checkPayment() {
-    var data = {
-      exDate: this.state.edate,
-      creditCard: this.state.ccnumber,
-      cvv: this.state.cvv
-    }
-    $.ajax({
-      method: 'POST',
-      url: '/payment',
-      data: data,
-      success: function (res) {
-        //another ajax to update db !!
-        console.log(res)
-        //alert('enjoy your trip')
-        $.ajax({
-          method: 'POST',
-          url: '/gettrips',
-          data: {
-            trips: this.state.trips,
-            idOfTourist: this.state.idOfTourist
-          },
-          success: function (updatedData) {
-            if (updatedData.statusCode === 200) {
-              console.log(updatedData)
-              alert('Data updated successfully !');
-            } else {
-              alert('Data not updated');
-            }
-          }
-        })
-      },
-      error: function (err) {
-        if (err.status === 406)
-          alert('Credit Card Date Expired')
-        if (err.status === 401)
-          alert('you enterd wrong information')
-
-
-      }
-    })
-  }
+  
   render() {
     if (!this.state.tokenin === '') {
       console.log('hi')

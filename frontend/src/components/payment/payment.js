@@ -65,9 +65,12 @@ class Payment extends React.Component {
             },
             error: function (err) {
                 if (err.status === 406)
-                    alert('Credit Card Date Expired')
+                    //alert('Credit Card Date Expired')
+                    document.getElementById("Expired").innerHTML = "<div class='alert alert-danger' role='alert'> Credit Card Date Expired</div>"
+
                 if (err.status === 401)
-                    alert('you enterd wrong information')
+                    //alert('you enterd wrong information')
+                    document.getElementById("Expired").innerHTML = "<div class='alert alert-danger' role='alert'> you enterd wrong information</div>"
 
 
             }
@@ -92,6 +95,7 @@ class Payment extends React.Component {
                             <div>
                                 <label>Expired Date</label>
                                 <input type='date' className="form-control" name="edate" onChange={this.handelchange} placeholder=" Credit Card Expier Date" />
+                            <small id="Expired"></small>
                             </div>
 
                             <div style={{ "marginTop": '12px' }}>
