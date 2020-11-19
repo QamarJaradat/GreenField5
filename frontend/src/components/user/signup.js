@@ -44,7 +44,8 @@ class Signup extends Component {
             var data = {
                 userName: username, userPass: this.state.password,
                 userMail: this.state.email, userNum: this.state.phoneNo,
-                userfirstName: this.state.firstName
+                userfirstName: this.state.firstName,
+                newsLetter:this.state.newsCheck
             }
             $.ajax({
                 type: "POST",
