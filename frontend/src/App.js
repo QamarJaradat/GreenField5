@@ -36,7 +36,7 @@ class App extends React.Component {
   changeLogInStatus() {
     this.setState({
       islogin: !this.state.islogin,
-      tokenin: ''
+      // tokenin: ''
     })
   }
   changeUserStatus() {
@@ -146,8 +146,14 @@ class App extends React.Component {
         render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus} hello='hello' />}
       />
     }
-    if (this.state.tokenin) { nav = <Navbar2></Navbar2> }
-    else { nav = <Navbar></Navbar> }
+    if (this.state.tokenin !== `authToken=`) {
+      console.log('token')
+      nav = <Navbar2></Navbar2>
+    }
+    else {
+      console.log('noo token')
+      nav = <Navbar></Navbar>
+    }
     return (
       <>
         <Router>

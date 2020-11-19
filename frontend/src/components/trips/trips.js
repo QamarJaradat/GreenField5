@@ -61,6 +61,10 @@ class Trip extends React.Component {
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3467/3467983.svg' alt='Date'></img>
                         <p>{new Date(this.state.thetrip.date).toLocaleDateString()}</p>
                     </div>
+                    <div>
+                        <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3409/3409565.svg' alt='tripGuide'></img>
+                        <p>{this.state.thetrip.tripGuide}</p>
+                    </div>
                 </div>
                 <br></br>
                 <div>

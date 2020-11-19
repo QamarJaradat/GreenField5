@@ -17,8 +17,12 @@ routers.get('/filldata', tripController.fillTrips)
 
 const auth = require('./auth')
 routers.get('/check', auth, (req, res) => {
-    res.status(200).send(req.user)
+    res.send(paymentController.check(req, res))
+    // res.status(200).send(req.user)
 })
+
+// routers.get('/check', auth, paymentController.check)
+
 
 
 
