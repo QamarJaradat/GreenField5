@@ -1,6 +1,7 @@
     [
         {
             "id": 1,
+            "explore": "Explore Nablus",
             "image": [
                 [
                     "https://www.inlocamotion.com/wp-content/uploads/2019/03/nablus-old-city-clock-tower.jpg",
@@ -23,6 +24,7 @@
         },
         {
             "id": 2,
+            "explore": "Explore Wadi Al-Qilt",
             "image": [
                 [
                     "https://alqudsnewspaperblog.files.wordpress.com/2016/04/13054570_255284498154121_1083704375_o.jpg",
@@ -44,6 +46,7 @@
         },
         {
             "id": 3,
+            "explore": "Explore Jerusalem",
             "image": [
                 [
                     "https://modo3.com/thumbs/fit630x300/198205/1536566302/%D9%85%D8%B9%D8%A7%D9%84%D9%85_%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%A7%D9%84%D9%82%D8%AF%D8%B3.jpg",
@@ -66,6 +69,7 @@
         },
         {
             "id": 4,
+            "explore": "Explore Wadi Qanna",
             "image": [
                 [
                     "https://images.alwatanvoice.com/news/large/9999007416.jpg",
@@ -87,6 +91,7 @@
         },
         {
             "id": 5,
+            "explore": "Explore The Palestinian Cost",
             "image": [
                 [
                     "https://upload.wikimedia.org/wikipedia/commons/5/5b/Israel_-_Haifa_-_Bahai_Gardens_004.jpg",

@@ -6,7 +6,6 @@ class CardItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
         }
 
     }
@@ -18,15 +17,9 @@ class CardItem extends React.Component {
                     <Link className='cards__item__link' to={{
                         pathname: this.props.path,
                         state: {
-                            // hello: this.props.hello,
-                            // helloAgain: this.props.hello,
-                            // trip: this.props.trip,
-                            trip: this.props.trip,
-                            userid: this.props.userid._id
-
+                            trip: this.props.trip
                         },
                         getup: this.props.getup,
-                        paymentCheck: this.props.paymentCheck
                     }}>
                         <figure className='cards__item__pic-wrap' data-category={this.props.label}>
                             <img

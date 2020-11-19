@@ -29,7 +29,9 @@ class Payment extends React.Component {
         this.setState({
             tripid: this.props.location.state.tripid
         })
-        console.log(this.state)
+        console.log(this.props.location.state.tripid, 'trip')
+        console.log(this.props.location.state.userid, 'user')
+
     }
 
     checkPayment() {
@@ -37,6 +39,10 @@ class Payment extends React.Component {
             exDate: this.state.edate,
             creditCard: this.state.ccnumber,
             cvv: this.state.cvv
+        }
+        var paydata = {
+            id: this.props.location.state.tripid,
+            idOfTourist: this.props.location.state.userid
         }
         $.ajax({
             method: 'POST',
@@ -48,15 +54,14 @@ class Payment extends React.Component {
                 //alert('enjoy your trip')
                 $.ajax({
                     method: 'POST',
-                    url: '/gettrips',
-                    data: {
-                        tripid: this.state.tripid,
-                        idOfTourist: this.state.idOfTourist
-                    },
+                    url: '/addtrip',
+                    data: paydata,
                     success: function (updatedData) {
-                        if (updatedData.statusCode === 200) {
+
+                        if (updatedData === 'all update') {
                             console.log(updatedData)
                             alert('Data updated successfully !');
+                            console.log('se you soons')
                         } else {
                             alert('Data not updated');
                         }
@@ -65,9 +70,12 @@ class Payment extends React.Component {
             },
             error: function (err) {
                 if (err.status === 406)
-                    alert('Credit Card Date Expired')
+                    //alert('Credit Card Date Expired')
+                    document.getElementById("Expired").innerHTML = "<div class='alert alert-danger' role='alert'> Credit Card Date Expired</div>"
+
                 if (err.status === 401)
-                    alert('you enterd wrong information')
+                    //alert('you enterd wrong information')
+                    document.getElementById("Expired").innerHTML = "<div class='alert alert-danger' role='alert'> you enterd wrong information</div>"
 
 
             }
@@ -92,6 +100,7 @@ class Payment extends React.Component {
                             <div>
                                 <label>Expired Date</label>
                                 <input type='date' className="form-control" name="edate" onChange={this.handelchange} placeholder=" Credit Card Expier Date" />
+                            <small id="Expired"></small>
                             </div>
 
                             <div style={{ "marginTop": '12px' }}>
