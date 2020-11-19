@@ -16,7 +16,7 @@ routers.post('/getuserinfo', userController.getuserinfo)
 //Payment 
 const paymentController = require('./Controller/PaymentController')
 routers.post('/payment', paymentController.payment)
-
+//Trips 
 routers.get('/gettrips', tripController.tripsList)
 routers.post('/gettrips', tripController.updateTrip)
 routers.get('/filldata', tripController.fillTrips)
