@@ -60,7 +60,7 @@ class Profile extends React.Component {
           <Carditem
             src={trip.image[0][0]}
             label={trip.name}
-            text="Explore Explore Explore"
+            text={trip.explore}
             path='/mytrip'
             trip={trip}
             paymentCheck={this.props.paymentCheck}
@@ -70,7 +70,7 @@ class Profile extends React.Component {
             <Carditem
               src={trip.image[0][0]}
               label={trip.name}
-              text="Explore Explore Explore"
+              text={trip.explore}
               path='/mytrip'
               trip={trip}
               paymentCheck={this.props.paymentCheck}
