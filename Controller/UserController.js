@@ -93,3 +93,16 @@ exports.userlogout = (req, res) => {
 
 
 }
+
+exports.userData = (req, res) => {
+    //var usertrip = req.body.trips
+    UserModel.findOne({ _id: req.body.id }, (err, userData) => {
+        if (err) {
+            console.log('user not found')
+            return res.status(404).send('not found user')
+        } else {
+            //console.log(userData.trips)
+            res.send(userData)
+        }
+    })
+}

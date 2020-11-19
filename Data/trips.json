@@ -1,6 +1,7 @@
     [
         {
             "id": 1,
+            "explore": "Explore Nablus",
             "image": [
                 [
                     "https://www.inlocamotion.com/wp-content/uploads/2019/03/nablus-old-city-clock-tower.jpg",
@@ -18,11 +19,12 @@
             "maximumNumPerTrip": 20,
             "idOfTourist": [],
             "discription": {
-                "day": "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
+                "1": "During your visit to Nablus, you can look into the ancient past. We will visit the old town, historical buildings , palaces and the Turkish public baths.If you like history, our trip will include the Roman amphitheater at Mount Gerizim, ancient mosques and historical churches.The city is considered the cradle of  many religions. We will visit Al-Nasr Mosque in the old city, Bir Ya`qub, Christian churches.And  Mount Gerizim which is sacred to the Samaritan sect. So we can  enjoy the beautiful different views of the city. Last, but not least, is to enjoy a varied food combination between  traditional and western food , various Nabulsi sweets, such as Kunafa."
             }
         },
         {
             "id": 2,
+            "explore": "Explore Wadi Al-Qilt",
             "image": [
                 [
                     "https://alqudsnewspaperblog.files.wordpress.com/2016/04/13054570_255284498154121_1083704375_o.jpg",
@@ -39,11 +41,12 @@
             "maximumNumPerTrip": 40,
             "idOfTourist": [],
             "discription": {
-                "day": "The trail starts from the outskirts of Jerusalem to Jericho and the Jordan Valley.It is an amazing experience for climbers and nature lovers. In addition to climbing and walking being a beautiful and exciting sport, you can also visit the Monastery of Saint George in Cosiba.The path is considered one of the most beautiful paths in Palestine and is full of natural and geological landscapes, so that the walker is dazzled by a painting of the mesmerizing rock formations and the curves of caves where the rocky pile lives, and green trees extend on both sides of the canal to form an oasis in the wadi desert."
+                "1": "The trail starts from the outskirts of Jerusalem to Jericho and the Jordan Valley.It is an amazing experience for climbers and nature lovers. In addition to climbing and walking being a beautiful and exciting sport, you can also visit the Monastery of Saint George in Cosiba.The path is considered one of the most beautiful paths in Palestine and is full of natural and geological landscapes, so that the walker is dazzled by a painting of the mesmerizing rock formations and the curves of caves where the rocky pile lives, and green trees extend on both sides of the canal to form an oasis in the wadi desert."
             }
         },
         {
             "id": 3,
+            "explore": "Explore Jerusalem",
             "image": [
                 [
                     "https://modo3.com/thumbs/fit630x300/198205/1536566302/%D9%85%D8%B9%D8%A7%D9%84%D9%85_%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%A7%D9%84%D9%82%D8%AF%D8%B3.jpg",
@@ -61,11 +64,12 @@
             "maximumNumPerTrip": 25,
             "idOfTourist": [],
             "discription": {
-                "day": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
+                "1": "It is considered one of the holy cities around the world for all religions and races. The Jerusalem trip  is considered one of the spiritual ones. It begins with a visit to the Al-Aqsa Mosque, the Dome of the Rock, and the Al-Marwani Mosque.The old town and the old market, then visit the Church of the Holy Sepulcher."
             }
         },
         {
             "id": 4,
+            "explore": "Explore Wadi Qanna",
             "image": [
                 [
                     "https://images.alwatanvoice.com/news/large/9999007416.jpg",
@@ -87,6 +91,7 @@
         },
         {
             "id": 5,
+            "explore": "Explore The Palestinian Cost",
             "image": [
                 [
                     "https://upload.wikimedia.org/wikipedia/commons/5/5b/Israel_-_Haifa_-_Bahai_Gardens_004.jpg",
@@ -123,7 +128,7 @@
                 ]
             ],
             "tripType": "4 night & 5 days Trip",
-            "name": "The Cost Trip",
+            "name": "The Coast Trip",
             "price": "150 JD",
             "date": "2020-12-10T00:00:00.000+00:00",
             "deadLine": "2020-11-09T00:00:00.000+00:00",
