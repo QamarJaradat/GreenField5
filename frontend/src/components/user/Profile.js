@@ -1,7 +1,8 @@
 import React from "react";
 import './Profile.css';
 import Carditem from './UserCarditem';
-import { List, ListItem, ListItemContent } from 'react-mdl';
+import $ from 'jquery'
+// import { List, ListItem, ListItemContent } from 'react-mdl';
 // import ReactDOM from "react-dom";
 // import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 
@@ -9,15 +10,21 @@ class Profile extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      usename: '',
+      useremail: ''
+    }
     this.booktrip = this.booktrip.bind(this)
   }
 
   booktrip() {
     console.log('clicked')
   }
-  componentDidMount() {
+
+  componentWillMount() {
     document.documentElement.scrollTop = 0;
+    // $.get('/getuserinfo', { data: this.props.userid })
+
   }
   render() {
     return (
@@ -39,15 +46,15 @@ class Profile extends React.Component {
             <div className='textContainer' >
               <div>
                 <h4 className="text">Name</h4>
-                <h6 className="text1">Full Name</h6>
+                <h6 className="text1">{this.props.userid.userName}</h6>
               </div>
               <div>
                 <h4 className="text">Email</h4>
-                <h6 className="text1">User Mail</h6>
+                <h6 className="text1">{this.props.userid.userMail}</h6>
               </div>
               <div>
                 <h4 className="text">Phone Number</h4>
-                <h6 className="text1">User Number</h6>
+                <h6 className="text1">{this.props.userid.userNum}</h6>
               </div>
             </div>
           </div>

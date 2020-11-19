@@ -24,7 +24,8 @@ class App extends React.Component {
       hello: 'hello for reeal',
       isuser: false,
       tokenin: "",
-      testtrips: []
+      testtrips: [],
+      userid: ''
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getup = this.getup.bind(this)
@@ -71,12 +72,33 @@ class App extends React.Component {
   getup() {
     console.log('all the way from the app, Hi!', this.state.testtrips)
   }
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       tokenin: document.cookie
     })
     document.documentElement.scrollTop = 0;
     this.getTrips()
+    if (document.cookie !== `authToken=`) {
+      console.log('horaii')
+      $.get('/checkuser', (res) => {
+        console.log(res._id)
+        $.ajax({
+          method: 'POST',
+          url: '/getuserinfo',
+          data: { id: res._id },
+          success: (resin) => {
+            console.log(resin._id)
+            this.setState({
+              userid: resin
+            })
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+      })
+    }
+    // console.log(this.state.userid)
 
   }
 
@@ -126,9 +148,7 @@ class App extends React.Component {
     })
   }
   render() {
-    if (!this.state.tokenin === '') {
-      console.log('hi')
-    }
+
     const { islogin } = this.state
     let comp
     let nav
@@ -146,7 +166,7 @@ class App extends React.Component {
         render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus} hello='hello' />}
       />
     }
-    if (this.state.tokenin !== `authToken=`) {
+    if (this.state.tokenin !== `authToken=` && this.state.tokenin !== '') {
       console.log('token')
       nav = <Navbar2></Navbar2>
     }
@@ -171,7 +191,8 @@ class App extends React.Component {
             {/* <Route path="/" exact component={Home} /> */}
             {/* <Route path="/trips" exact component={Trips} /> */}
             <Route path="/sign-up" exact component={Signup} />
-            <Route path="/user" exact component={Profile} />
+            <Route path="/user" exact render={(props) => <Profile userid={this.state.userid} />}
+            />
             <Route path="/trip" exact component={Trip} />
             <Route path="/payment" exact component={Payment} />
 
