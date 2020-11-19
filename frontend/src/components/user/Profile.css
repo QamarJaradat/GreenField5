@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+.imgdiv{
+height:95vh;
+background-image:url('https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_full.jpg');
+background-size: cover;
+background-position: center;
+}
+html, body {
+    margin:0px;
+    height:100%;
+  }
+.picContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 50%;
+    height: 160px;
+    width: 50%;
+}
+.textContainer{
+    text-align: center;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+}
+
+.text{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    /* font-size: 0.70cm; */
+}
+#profile{
+    background-color: rgba(255, 255, 255, 0.603);
+    height:95vh;
+    padding-top: 10%;
+    flex: 25%;
+    padding: 20px;
+}
+
+#row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+/* @media screen and (max-width: 992px) {
+    #profile {
+      flex: 50%;
+    }
+  } */
+  
+ /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+  /* @media screen and (max-width: 600px) {
+    #row {
+      flex-direction: column;
+    }
+  }  */
+
+
+
+  
