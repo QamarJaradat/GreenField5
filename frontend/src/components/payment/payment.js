@@ -60,8 +60,14 @@ class Payment extends React.Component {
 
                         if (updatedData === 'all update') {
                             console.log(updatedData)
-                            alert('Data updated successfully !');
-                            console.log('se you soons')
+                            document.getElementById("wait").innerHTML = "<div class='alert alert-primary' role='alert'>Wait a moment please</div>"
+                            setTimeout(() => {
+                                setTimeout(() => {
+                                    
+                                    window.location.href = "/"
+                                }, 3000);
+                                document.getElementById("wait").innerHTML = "<div class='alert alert-primary' role='alert'>Enjoy your trip</div>"
+                            }, 5000);
                         } else {
                             alert('Data not updated');
                         }
@@ -106,6 +112,11 @@ class Payment extends React.Component {
                             <div style={{ "marginTop": '12px' }}>
                                 <input type='button' value='Ready to Go!' className="btn btn-secondary" onClick={this.checkPayment} style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
                             </div>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <small id="wait"></small>
+
                         </form>
                     </div>
                 </div>

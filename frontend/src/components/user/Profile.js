@@ -90,7 +90,7 @@ class Profile extends React.Component {
             <br></br>
             <div className='picContainer'>
               <img className="img1"
-                src="C:\fakepath\8c28b834f2d5dd0b6a740d86b5d6627e.jpg"
+                src={this.props.userid.userimage}
                 alt="userPic"
               />
             </div>

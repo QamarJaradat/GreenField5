@@ -72,7 +72,7 @@ class App extends React.Component {
   getup() {
     console.log('all the way from the app, Hi!', this.state.testtrips)
   }
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       tokenin: document.cookie
     })

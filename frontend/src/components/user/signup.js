@@ -13,7 +13,7 @@ class Signup extends Component {
             password: '',
             conformPassword: '',
             phoneNo: '',
-            file: '',
+            urlimage: '',
             checked: true,
             newsCheck: false
         }
@@ -26,14 +26,13 @@ class Signup extends Component {
             newsCheck: !this.state.newsCheck
         })
         //alert('Thank you for Subscribing to our News Letter')
-        if (!this.state.newsCheck) { document.getElementById("subscribed").innerHTML = "<div class='alert alert-danger' role='alert'>Thank you for Subscribing to our News Letter</div>" }
+        if (!this.state.newsCheck) { document.getElementById("subscribed").innerHTML = "<div class='alert alert-primary' role='alert'>Thank you for Subscribing to our News Letter</div>" }
         else { document.getElementById("subscribed").innerHTML = "<div></div>" }
     }
     handelchange(e) {
         console.log(e.target.name)
         this.setState({
             [e.target.name]: e.target.value,
-
         })
     }
     componentDidMount() {
@@ -49,7 +48,7 @@ class Signup extends Component {
                 userMail: this.state.email, userNum: this.state.phoneNo,
                 userfirstName: this.state.firstName,
                 newsLetter: this.state.newsCheck,
-                userimage: this.state.file,
+                userimage: this.state.urlimage,
             }
             $.ajax({
                 type: "POST",
@@ -141,10 +140,10 @@ class Signup extends Component {
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
                             </div>
                             <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
-                                <div>
-                                    <input type="file" name="file" id="avatar" accept=".jpg, .jpeg, .png" onChange={this.handelchange}></input>
-                                    <small>add a profile picture</small>
-                                </div>
+                            <div>
+                                <lable>Put URL link for your image</lable>
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage" />
+                            </div>
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
                                 <div style={{ "marginTop": '4px' }}>
                                     <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>

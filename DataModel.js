@@ -32,7 +32,7 @@ let userSchema = mongoose.Schema({
     userName: String,
     userMail: String,
     userPass: String,
-    userNum: Number,
+    userNum: String,
     trips: [String],
     userimage: String,
     newsLetter: Boolean
