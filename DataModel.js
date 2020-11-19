@@ -16,6 +16,7 @@ let tripsSchema = mongoose.Schema({
     image: [[String]],
     tripType: String,
     name: String,
+    explore: String,
     price: String,
     date: Date,
     deadline: Date,
@@ -31,8 +32,9 @@ let userSchema = mongoose.Schema({
     userName: String,
     userMail: String,
     userPass: String,
-    userNum: Number,
-    trips: [Number],
+    userNum: String,
+    trips: [String],
+    userimage: String,
     newsLetter: Boolean
 })
 

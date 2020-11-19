@@ -1,5 +1,8 @@
 const trips = require("../DataModel").trips
+const UserModel = require('../DataModel').users
+
 const tripsData = require('../Data/trips.json')
+
 exports.tripsList = (req, res) => {
     trips.find({}, (err, trips) => {
         if (err)
@@ -10,17 +13,28 @@ exports.tripsList = (req, res) => {
 exports.updateTrip = (req, res) => {
     trips.findOne({ _id: req.body.id }, (err, trip) => {
         if (err)
-            res.send(err);
+            return res.status(400).send(err);
         if (trip) {
-
-            trip.touristid.push(req.body.touristid);
-            trips.updateOne({ _id: trip._id }, { touristid: trip.touristid }, (err, data) => {
-
-                trips.findOne({ _id: req.body.id }, (err, trip) => {
-                    if (err)
-                        res.send(err);
-                    res.send(trip)
-                })
+            trip.idOfTourist.push(req.body.idOfTourist);
+            trips.updateOne({ _id: trip._id }, { idOfTourist: trip.idOfTourist }, (err, data) => {
+                if (err)
+                    return res.status(400).send(err);
+                if (data) {
+                    UserModel.findOne({ _id: req.body.idOfTourist }, (err, user) => {
+                        if (err)
+                            return res.status(400).send(err);
+                        if (user) {
+                            user.trips.push(req.body.id)
+                            UserModel.updateOne({ _id: user._id }, { trips: user.trips }, (err, data) => {
+                                if (err)
+                                    return res.status(400).send(err);
+                                if (data) {
+                                    return res.status(200).send('all update')
+                                }
+                            })
+                        }
+                    })
+                }
             }
             )
         }
@@ -38,5 +52,17 @@ exports.fillTrips = (req, res) => {
         })
     }
     res.send(tripsData)
+
+}
+
+exports.getmytrips = (req, res) => {
+    console.log(req.body)
+
+    trips.findOne({ _id: req.body.id }, (err, data) => {
+        if (data) {
+            res.send(data)
+
+        }
+    })
 
 }

@@ -20,7 +20,7 @@ class Home extends React.Component {
             <>
                 <Section />
                 <AboutUs />
-                <Cards lable1={this.props.hello} testtrips={this.props.testtrips} getup={this.props.getup} trip={this.props.trip} paymentCheck={this.props.paymentCheck} />
+                <Cards lable1={this.props.hello} testtrips={this.props.testtrips} userid={this.props.userid} getup={this.props.getup} trip={this.props.trip} paymentCheck={this.props.paymentCheck} />
             </>
         )
     }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import './A-Style.css';
-import { Button } from './Button';
+import { Button } from './LogoutButton';
 
 
 function Navbar() {

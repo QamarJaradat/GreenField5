@@ -1,7 +1,8 @@
 import React from "react";
 import './Profile.css';
-import Carditem from '../Homepage/Carditem';
-import { List, ListItem, ListItemContent } from 'react-mdl';
+import Carditem from './UserCarditem';
+import $ from 'jquery'
+// import { List, ListItem, ListItemContent } from 'react-mdl';
 // import ReactDOM from "react-dom";
 // import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 
@@ -9,76 +10,123 @@ class Profile extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      usename: '',
+      useremail: '',
+      mytrips: ''
+    }
     this.booktrip = this.booktrip.bind(this)
   }
 
   booktrip() {
     console.log('clicked')
   }
+
   componentDidMount() {
+    console.log(this.props.userid)
+    var array = []
+    if (this.props.userid.trips) {
+      // console.log(this.props.userid.trips)
+      var mytrips = this.props.userid.trips
+      for (var i in mytrips) {
+        $.ajax({
+          type: "POST",
+          url: "/getmytrips",
+          data: { id: mytrips[i] },
+          success: (res) => {
+            console.log(res)
+            array.push(res)
+            this.setState({
+              mytrips: array
+            })
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+      }
+    }
+  }
+  componentWillMount() {
     document.documentElement.scrollTop = 0;
+    // $.get('/getuserinfo', { data: this.props.userid })
+
   }
   render() {
+    let cards
+    if (this.state.mytrips) {
+      cards = <div> <ul className="cards__items">
+        {this.state.mytrips.slice(0, 3).map((trip) =>
+          <Carditem
+            src={trip.image[0][0]}
+            label={trip.name}
+            text="Explore Explore Explore"
+            path='/mytrip'
+            trip={trip}
+            paymentCheck={this.props.paymentCheck}
+          />)}</ul>
+        <ul className="cards__items">
+          {this.state.mytrips.slice(3, 5).map((trip) =>
+            <Carditem
+              src={trip.image[0][0]}
+              label={trip.name}
+              text="Explore Explore Explore"
+              path='/mytrip'
+              trip={trip}
+              paymentCheck={this.props.paymentCheck}
+            />)}</ul>
+      </div>
+
+    }
+    else {
+      cards = <div>No Booked Trips Yet</div>
+    }
     return (
       <div className="imgdiv">
-      <div className="row" id="row">
+        <div className="row" id="row">
           <div id="profile" className="col-sm-4 right" >
-          <br></br>
-          <br></br>
-          <br></br>
-              <div className='picContainer'>
+            <br></br>
+            <br></br>
+            <br></br>
+            <div className='picContainer'>
               <img className="img1"
-                src="https://media.npr.org/assets/img/2016/11/23/getty-480815249_wide-b7dfe122319c47631b74ce1a291f6e42df61f74b.jpg?s=1400"
+                src={this.props.userid.userimage}
                 alt="userPic"
               />
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <div className='textContainer' >
+              <div>
+                <h4 className="text">Name</h4>
+                <h6 className="text1">{this.props.userid.userName}</h6>
               </div>
-              <br></br>
-              <br></br>
-              <br></br>
-              <div className='textContainer' >
-                 <div>
-                      <h4 className="text">Name</h4>
-                      <h6 className="text1">Full Name</h6>
-                 </div>
-                 <div>
-                      <h4 className="text">Email</h4>
-                      <h6 className="text1">User Mail</h6>
-                 </div>
-                 <div>
-                      <h4 className="text">Phone Number</h4>
-                      <h6 className="text1">User Number</h6>
-                 </div>
+              <div>
+                <h4 className="text">Email</h4>
+                <h6 className="text1">{this.props.userid.userMail}</h6>
               </div>
+              <div>
+                <h4 className="text">Phone Number</h4>
+                <h6 className="text1">{this.props.userid.userNum}</h6>
+              </div>
+            </div>
           </div>
           <div className="col left" id="column">
-          <div className='cards__container' id="cards__container1">
-                    <div className="cards__wrapper">
-                    <br></br>
-          <br></br>
-                    <div className="textContainer">
-                        <h4 className="text">Booked Trips</h4>
-                    </div>
-                    <br></br>
-                        <ul className="cards__items">
-                            <Carditem
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                                text="Explore Explore Explore"
-                                label="Trip2"
-                                path='/trip'
-                            />
-                            <Carditem
-                                src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                                text="Explore Explore Explore"
-                                label="Trip3"
-                                path='/trip'
-                            />
-                        </ul>
-                    </div>
+            <div className='cards__container' id="cards__container1">
+              <div className="cards__wrapper">
+                <br></br>
+                <br></br>
+                <div className="textContainer">
+                  <h4 className="text">Booked Trips</h4>
                 </div>
-                </div>
+                <br></br>
+                {cards}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
     )
   }
 

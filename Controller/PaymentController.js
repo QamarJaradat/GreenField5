@@ -1,5 +1,7 @@
 const PaymentModel = require('../DataModel').payment
 
+const auth = require('../auth')
+
 exports.payment = (req, res) => {
 
     var today = new Date();
@@ -21,3 +23,5 @@ exports.payment = (req, res) => {
         }
     })
 }
+
+exports.check = (req, res) => { return (req.user) }

@@ -17,7 +17,7 @@ class Cards extends React.Component {
     }
 
     render() {
-        console.log(this.props.testtrips)
+        // console.log(this.props.testtrips)
         return (
             <div className='cards'>
                 <h1>Check out our Trips</h1>
@@ -30,44 +30,16 @@ class Cards extends React.Component {
                                     src={trip.image[0][0]}
                                     // text={this.props.trip[0].explor}
                                     label={trip.name}
-                                    text="Explore Explore Explore"
-
+                                    text={trip.explore}
                                     // hello={this.props.lable1}
                                     path='/trip'
                                     // getup={this.props.getup}
                                     trip={trip}
                                     paymentCheck={this.props.paymentCheck}
+                                    userid={this.props.userid}
 
                                 />)}
-                            {/* <Carditem
-                                src={this.props.trip[0].image[0][0]}
-                                text={this.props.trip[0].explor}
-                                label={this.props.trip[0].name}
-                                hello={this.props.lable1}
-                                path='/trip'
-                                getup={this.props.getup}
-                                trip={this.props.trip[0]}
-                                paymentCheck={this.props.paymentCheck}
 
-                            /> */}
-
-                            {/* <Carditem
-                                src={this.props.trip[1].image[0][0]}
-                                text={this.props.trip[1].explor}
-                                label={this.props.trip[1].name}
-                                hello={this.props.lable1}
-                                path='/trip'
-                                getup={this.props.getup}
-                                trip={this.props.trip[1]}
-                                paymentCheck={this.props.paymentCheck}
-                            /> */}
-                            {/* <Carditem
-                                src={this.props.testtrips[0].image[0][0]}
-                                text="Explore Explore Explore"
-                                label={this.props.trip[0].testtrips}
-                                path='/trip'
-                                testtrips={this.props.testtrips}
-                            /> */}
                         </ul>
                         <ul className="cards__items">
                             {this.props.testtrips.slice(3, 5).map((trip) =>
@@ -76,9 +48,11 @@ class Cards extends React.Component {
                                     // text={this.props.trip[0].explor}
                                     label={trip.name}
                                     // hello={this.props.lable1}
-                                    text="Explore Explore Explore"
+                                    text={trip.explore}
 
                                     path='/trip'
+                                    userid={this.props.userid}
+
                                     // getup={this.props.getup}
                                     trip={trip}
                                     paymentCheck={this.props.paymentCheck}
