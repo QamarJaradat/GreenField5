@@ -13,6 +13,7 @@ class Signup extends Component {
             password: '',
             conformPassword: '',
             phoneNo: '',
+            file: '',
             checked: true,
             newsCheck: false
         }
@@ -29,8 +30,10 @@ class Signup extends Component {
         else { document.getElementById("subscribed").innerHTML = "<div></div>" }
     }
     handelchange(e) {
+        console.log(e.target.name)
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+
         })
     }
     componentDidMount() {
@@ -38,14 +41,15 @@ class Signup extends Component {
     }
 
     LoginHandler() {
-
+        console.log(this.state.file)
         if (this.state.password === this.state.conformPassword) {
             var username = this.state.firstName + " " + this.state.lastName
             var data = {
                 userName: username, userPass: this.state.password,
                 userMail: this.state.email, userNum: this.state.phoneNo,
                 userfirstName: this.state.firstName,
-                newsLetter:this.state.newsCheck
+                newsLetter: this.state.newsCheck,
+                userimage: this.state.file,
             }
             $.ajax({
                 type: "POST",
@@ -137,10 +141,12 @@ class Signup extends Component {
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
                             </div>
                             <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
+                                <div>
+                                    <input type="file" name="file" id="avatar" accept=".jpg, .jpeg, .png" onChange={this.handelchange}></input>
+                                    <small>add a profile picture</small>
+                                </div>
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
                                 <div style={{ "marginTop": '4px' }}>
-
-
                                     <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
                                     <small id="subscribed"></small>
                                     <br></br>
@@ -153,7 +159,7 @@ class Signup extends Component {
                                 <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '4px' }}></input>
 
                                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
-                            
+
                             </div>
                         </form>
                     </div>

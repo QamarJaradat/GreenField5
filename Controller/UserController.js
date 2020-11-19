@@ -30,6 +30,7 @@ exports.signUpUser = async (req, res) => {
             var newuser = new UserModel()
             newuser.userName = req.body.userName
             newuser.userMail = req.body.userMail
+            newuser.userimage = req.body.userimage
             newuser.userPass = hashedPass
             newuser.userNum = req.body.userNum
             newuser.trips = []
