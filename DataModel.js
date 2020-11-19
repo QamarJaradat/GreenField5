@@ -19,7 +19,7 @@ let tripsSchema = mongoose.Schema({
     explore: String,
     price: String,
     date: Date,
-    deadline: Date,
+    deadLine: Date,
     tripGuide: String,
     maximumNumPerTrip: Number,
     idOfTourist: [String],
