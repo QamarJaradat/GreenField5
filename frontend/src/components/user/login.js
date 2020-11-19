@@ -32,11 +32,11 @@ class Login extends React.Component {
       error: function (error) {
         if (error.status === 410) {
           //alert('wrong password')
-          document.getElementById("emptyuser").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
+          document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
 
         }
         if (error.status === 404) {
-          document.getElementById("logErr").innerHTML = "<div class='alert alert-danger' role='alert'> Invaild Username</div>"
+          document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> Invaild Username</div>"
           //alert('user not existed')
           console.log(error.responseText)
         }
@@ -74,15 +74,15 @@ class Login extends React.Component {
               <div>
                 <label>Your Email</label>
                 <input type="email" className="form-control inputhover" name="email" placeholder="email" onChange={this.handelchange} />
-                <small id="logErr"></small>
-                <small id="emptyuser"></small>
+                {/* <small id="logErr"></small> */}
+                {/* <small id="emptyuser"></small> */}
               </div>
               <div>
                 <label>Password</label>
                 <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="password" />
-                <small id="logPass"></small>
               </div>
               <div style={{ "marginTop": '12px' }}>
+                <small id="logPass"></small>
                 <input type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Signup here</small>
               </div>

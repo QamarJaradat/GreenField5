@@ -106,7 +106,6 @@ class App extends React.Component {
     console.log('payment method')
   }
 
-
   render() {
 
     const { islogin } = this.state
