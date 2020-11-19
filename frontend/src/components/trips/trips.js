@@ -10,6 +10,7 @@ class Trip extends React.Component {
             thetrip: {
                 image: [],
                 discription: {},
+                _id: ''
             },
             booked: false
         }
@@ -85,7 +86,7 @@ class Trip extends React.Component {
                 <Link to={{
                     pathname: '/payment',
                     state: {
-                        // tripid: this.props.tripid._id
+                        tripid: this.props.location.state
                     },
                     // paymentCheck: this.props.paymentCheck
                 }}   >

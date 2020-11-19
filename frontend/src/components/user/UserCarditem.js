@@ -6,7 +6,6 @@ class CardItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
         }
 
     }
@@ -21,7 +20,6 @@ class CardItem extends React.Component {
                             trip: this.props.trip
                         },
                         getup: this.props.getup,
-                        paymentCheck: this.props.paymentCheck
                     }}>
                         <figure className='cards__item__pic-wrap' data-category={this.props.label}>
                             <img

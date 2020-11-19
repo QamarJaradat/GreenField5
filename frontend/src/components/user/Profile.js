@@ -1,7 +1,7 @@
 import React from "react";
 import './Profile.css';
 import Carditem from './UserCarditem';
-import $ from 'jquery'
+// import $ from 'jquery'
 // import { List, ListItem, ListItemContent } from 'react-mdl';
 // import ReactDOM from "react-dom";
 // import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
@@ -27,6 +27,23 @@ class Profile extends React.Component {
 
   }
   render() {
+    let cards
+    if (this.props.trips) {
+      cards = <div>
+        {this.props.trips.slice(3, 5).map((trip) =>
+          <Carditem
+            src={trip.image[0][0]}
+            label={trip.name}
+            text="Explore Explore Explore"
+            path='/trip'
+            trip={trip}
+            paymentCheck={this.props.paymentCheck}
+          />)}</div>
+
+    }
+    else {
+      cards = <div>No Booked Trips Yet</div>
+    }
     return (
       <div className="imgdiv">
         <div className="row" id="row">
@@ -68,7 +85,9 @@ class Profile extends React.Component {
                 </div>
                 <br></br>
                 <ul className="cards__items">
-                  <Carditem
+                  {cards}
+
+                  {/* <Carditem
                     src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
                     text="Explore Explore Explore"
                     label="Trip2"
@@ -79,7 +98,7 @@ class Profile extends React.Component {
                     text="Explore Explore Explore"
                     label="Trip3"
                     path='/trip'
-                  />
+                  /> */}
                 </ul>
               </div>
             </div>

@@ -21,7 +21,7 @@ class CardItem extends React.Component {
                             // hello: this.props.hello,
                             // helloAgain: this.props.hello,
                             // trip: this.props.trip,
-                            trip: this.props.trip
+                            trip: this.props.trip,
                         },
                         getup: this.props.getup,
                         paymentCheck: this.props.paymentCheck
