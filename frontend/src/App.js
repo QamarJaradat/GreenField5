@@ -11,7 +11,7 @@ import Login from './components/user/login'
 import Trip from './components/trips/trips'
 import Signup from './components/user/signup'
 import Payment from './components/payment/payment'
-
+import MyTrip from './components/trips/mytrips'
 import Profile from './components/user/Profile';
 import Navbar2 from './components/Homepage/Navbar-login';
 
@@ -24,7 +24,8 @@ class App extends React.Component {
       hello: 'hello for reeal',
       isuser: false,
       tokenin: "",
-      testtrips: []
+      testtrips: [],
+      userid: ''
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getup = this.getup.bind(this)
@@ -52,11 +53,11 @@ class App extends React.Component {
       url: "/gettrips",
       success: (res) => {
         for (var i in res) {
-          console.log(res[i])
+          // console.log(res[i])
           alltrips.push(res[i])
 
         }
-        console.log("my first ajax request yay" + alltrips)
+        console.log("my first ajax request yay")
         this.setState({
           testtrips: alltrips
         })
@@ -77,6 +78,27 @@ class App extends React.Component {
     })
     document.documentElement.scrollTop = 0;
     this.getTrips()
+    if (document.cookie !== `authToken=`) {
+      console.log('horaii')
+      $.get('/checkuser', (res) => {
+        console.log(res._id)
+        $.ajax({
+          method: 'POST',
+          url: '/getuserinfo',
+          data: { id: res._id },
+          success: (resin) => {
+            console.log(resin._id)
+            this.setState({
+              userid: resin
+            })
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+      })
+    }
+    // console.log(this.state.userid)
 
   }
 
@@ -84,51 +106,8 @@ class App extends React.Component {
     console.log('payment method')
   }
 
-  checkPayment() {
-    var data = {
-      exDate: this.state.edate,
-      creditCard: this.state.ccnumber,
-      cvv: this.state.cvv
-    }
-    $.ajax({
-      method: 'POST',
-      url: '/payment',
-      data: data,
-      success: function (res) {
-        //another ajax to update db !!
-        console.log(res)
-        //alert('enjoy your trip')
-        $.ajax({
-          method: 'POST',
-          url: '/gettrips',
-          data: {
-            trips: this.state.trips,
-            idOfTourist: this.state.idOfTourist
-          },
-          success: function (updatedData) {
-            if (updatedData.statusCode === 200) {
-              console.log(updatedData)
-              alert('Data updated successfully !');
-            } else {
-              alert('Data not updated');
-            }
-          }
-        })
-      },
-      error: function (err) {
-        if (err.status === 406)
-          alert('Credit Card Date Expired')
-        if (err.status === 401)
-          alert('you enterd wrong information')
-
-
-      }
-    })
-  }
   render() {
-    if (!this.state.tokenin === '') {
-      console.log('hi')
-    }
+
     const { islogin } = this.state
     let comp
     let nav
@@ -146,7 +125,7 @@ class App extends React.Component {
         render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus} hello='hello' />}
       />
     }
-    if (this.state.tokenin !== `authToken=`) {
+    if (this.state.tokenin !== `authToken=` && this.state.tokenin !== '') {
       console.log('token')
       nav = <Navbar2></Navbar2>
     }
@@ -162,24 +141,26 @@ class App extends React.Component {
             {comp}
             <Route
               path="/"
-              exact render={(props) => <Home getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} hello={this.state.hello} trip={this.state.thetrip} />}
+              exact render={(props) => <Home getup={this.getup} userid={this.state.userid} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} hello={this.state.hello} trip={this.state.thetrip} />}
             />
             <Route
               path="/trips"
-              render={(props) => <Trips getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} lable1={this.state.hello} trip={this.state.thetrip} />}
+              render={(props) => <Trips userid={this.state.userid} getup={this.getup} testtrips={this.state.testtrips} paymentCheck={this.paymentCheck} lable1={this.state.hello} trip={this.state.thetrip} />}
             />
             {/* <Route path="/" exact component={Home} /> */}
             {/* <Route path="/trips" exact component={Trips} /> */}
             <Route path="/sign-up" exact component={Signup} />
-            <Route path="/user" exact component={Profile} />
+            <Route path="/user" exact render={(props) => <Profile userid={this.state.userid} />}
+            />
             <Route path="/trip" exact component={Trip} />
+            <Route path="/mytrip" exact component={MyTrip} />
+
             <Route path="/payment" exact component={Payment} />
 
           </Switch>
           <Footer />
         </Router>
       </>
-
 
     )
 

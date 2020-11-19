@@ -2,6 +2,7 @@ const UserModel = require('../DataModel').users
 const bcrypt = require('bcryptjs')
 //JWT
 const jwt = require('jsonwebtoken');
+const { use } = require('../routes');
 
 exports.signUpUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10)
@@ -12,19 +13,12 @@ exports.signUpUser = async (req, res) => {
     userpas = req.body.userPass
     if (!req.body.userfirstName) {
         return res.status(451).send('error')
-
-
     }
-
     if (!userpas) {
         return res.status(421).send('error')
-
     }
-
-
     if (!userMail) {
         return res.status(411).send('error')
-
     }
 
     UserModel.findOne({ userMail: req.body.userMail }, (err, user) => {
@@ -36,6 +30,7 @@ exports.signUpUser = async (req, res) => {
             var newuser = new UserModel()
             newuser.userName = req.body.userName
             newuser.userMail = req.body.userMail
+            newuser.userimage = req.body.userimage
             newuser.userPass = hashedPass
             newuser.userNum = req.body.userNum
             newuser.trips = []
@@ -45,6 +40,9 @@ exports.signUpUser = async (req, res) => {
                     console.log(err)
                     return res.status(400).send('error')
                 }
+                // console.log("saving user", saveduse)
+                var token = jwt.sign({ _id: saveduse._id }, process.env.TOKEN_SECRET)
+                res.cookie('authToken', token)
                 return res.status(200).send('created')
 
             })
@@ -56,18 +54,14 @@ exports.signUpUser = async (req, res) => {
 
 exports.loginUser = (req, res) => {
     var userMail = req.body.userMail
-    var userPass = req.body.userPass
     if (!userMail) {
         return res.status(410).send('error')
-
     }
     UserModel.findOne({ userMail: userMail }, async (err, user) => {
-
         if (err) {
             console.log(err)
             return res.status(500).send('error')
         }
-
         if (!user) {
             console.log('user not found')
             return res.status(404).send('not found user')
@@ -78,12 +72,11 @@ exports.loginUser = (req, res) => {
                 res.status(400).send('invalid Password')
             }
             else {
-                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '5m' })
+                var token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET)
                 res.cookie('authToken', token)
                 return res.status(200).send(token)
             }
         }
-
     })
 }
 
@@ -92,4 +85,23 @@ exports.userlogout = (req, res) => {
     res.status(200).send(req.user)
 
 
+}
+
+exports.checkuser = (req, res) => { return (req.user) }
+
+exports.getuserinfo = (req, res) => {
+    UserModel.findOne({ _id: req.body.id }, (err, userData) => {
+        console.log(req.body._id)
+        if (err) {
+            console.log(err)
+            return res.status(500).send('error')
+        }
+        if (!userData) {
+            console.log('user not found')
+            return res.status(404).send('not found user')
+        }
+        else {
+            return res.status(200).send(userData)
+        }
+    })
 }

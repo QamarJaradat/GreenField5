@@ -13,6 +13,7 @@ class Signup extends Component {
             password: '',
             conformPassword: '',
             phoneNo: '',
+            urlimage: '',
             checked: true,
             newsCheck: false
         }
@@ -25,12 +26,13 @@ class Signup extends Component {
             newsCheck: !this.state.newsCheck
         })
         //alert('Thank you for Subscribing to our News Letter')
-        if (!this.state.newsCheck) { document.getElementById("subscribed").innerHTML = "<div class='alert alert-danger' role='alert'>Thank you for Subscribing to our News Letter</div>" }
+        if (!this.state.newsCheck) { document.getElementById("subscribed").innerHTML = "<div class='alert alert-primary' role='alert'>Thank you for Subscribing to our News Letter</div>" }
         else { document.getElementById("subscribed").innerHTML = "<div></div>" }
     }
     handelchange(e) {
+        console.log(e.target.name)
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         })
     }
     componentDidMount() {
@@ -38,13 +40,15 @@ class Signup extends Component {
     }
 
     LoginHandler() {
-
+        console.log(this.state.file)
         if (this.state.password === this.state.conformPassword) {
             var username = this.state.firstName + " " + this.state.lastName
             var data = {
                 userName: username, userPass: this.state.password,
                 userMail: this.state.email, userNum: this.state.phoneNo,
-                userfirstName: this.state.firstName
+                userfirstName: this.state.firstName,
+                newsLetter: this.state.newsCheck,
+                userimage: this.state.urlimage,
             }
             $.ajax({
                 type: "POST",
@@ -59,19 +63,19 @@ class Signup extends Component {
                     if (error.status === 451) {
                         console.log('451')
 
-                        document.getElementById("emptyname").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your name</div>"
+                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your name</div>"
 
                     }
 
                     if (error.status === 411) {
                         //alert('wrong password')
-                        document.getElementById("emptyusermail").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
+                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
 
                     }
 
                     if (error.status === 421) {
 
-                        document.getElementById("emptypass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your Pass</div>"
+                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your password</div>"
 
                     }
 
@@ -79,7 +83,7 @@ class Signup extends Component {
 
                     if (error.status === 406) {
                         //alert('already created user with this Email')
-                        document.getElementById("userCreated").innerHTML = "<div class='alert alert-danger' role='alert'> This email has been used</div>"
+                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> This email has been used</div>"
 
                         console.log(error.responseText)
                     }
@@ -89,7 +93,7 @@ class Signup extends Component {
         }
         else {
             //alert("Password not matche");
-            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> passwords doesn't match</div>"
+            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> passwords don't match</div>"
 
         }
     }
@@ -108,7 +112,7 @@ class Signup extends Component {
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
-                                <small id="emptyname"> </small>
+                                {/* <small id="emptyname"> </small> */}
                             </div>
                             <div>
                                 <label>Last Name</label>
@@ -118,8 +122,8 @@ class Signup extends Component {
                             <div>
                                 <label>Email</label>
                                 <input type="email" className="form-control inputhover" onChange={this.handelchange} name="email" placeholder="Email" />
-                                <small id="userCreated"> </small>
-                                <small id="emptyusermail"> </small>
+                                {/* <small id="userCreated"> </small> */}
+                                {/* <small id="emptyusermail"> </small> */}
                             </div>
                             <div>
                                 <label>Phone Number</label>
@@ -129,18 +133,19 @@ class Signup extends Component {
                                 <label>Password</label>
 
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="Password" />
-                                <small id='emptypass'></small>
+                                {/* <small id='emptypass'></small> */}
                             </div>
                             <div>
                                 <lable>Confirm Password</lable>
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
-                                <small id="matchPass"></small>
                             </div>
                             <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
+                            <div>
+                                <lable>Put URL link for your image</lable>
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage" />
+                            </div>
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
                                 <div style={{ "marginTop": '4px' }}>
-
-
                                     <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
                                     <small id="subscribed"></small>
                                     <br></br>
@@ -149,9 +154,11 @@ class Signup extends Component {
 
                             </div>
                             <div>
+                                <small id="matchPass"></small>
                                 <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '4px' }}></input>
 
                                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+
                             </div>
                         </form>
                     </div>
