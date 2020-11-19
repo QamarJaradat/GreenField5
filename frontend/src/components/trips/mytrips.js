@@ -1,6 +1,6 @@
 import React from "react";
 import './trips.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Day from './days'
 class Trip extends React.Component {
 
@@ -44,15 +44,6 @@ class Trip extends React.Component {
 
     }
     render() {
-        let statedata = {}
-        if (this.props.location.state.userid && this.props.location.state.trip) {
-            statedata = {
-                tripid: this.props.location.state.trip._id,
-                userid: this.props.location.state.userid
-            }
-        }
-
-
         return (
             <div >
                 <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
@@ -97,7 +88,6 @@ class Trip extends React.Component {
 
                     )}
                 </div>
-
                 <p align="center" style={{ 'marginTop': '60px' }}>See You Soon!!</p>
             </div >
         )
