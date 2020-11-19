@@ -3,6 +3,7 @@ const app = express();
 const routers = require('./routes');
 // const cors = require('cors')
 var cookieParser = require('cookie-parser')
+const auth = require('./auth')
 
 const bodyParser = require('body-parser');
 
@@ -25,6 +26,6 @@ app.get('/', (req, res) => {
 
 })
 app.use('/', routers)
-app.use('/payment', (req, res) => { console.log("kill me please"); res.end("hiiiiiiiiiiii") })
+app.get('/payment', auth, (req, res) => { console.log("kill me please"); res.end("hiiiiiiiiiiii") })
 module.exports = app;
 

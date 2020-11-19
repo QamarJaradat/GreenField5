@@ -1,4 +1,5 @@
 const PaymentModel = require('../DataModel').payment
+const auth = require('../auth')
 
 exports.payment = (req, res) => {
 
@@ -21,3 +22,5 @@ exports.payment = (req, res) => {
         }
     })
 }
+
+exports.check = (req, res) => { console.log("kill me please", req.cookies); return (req.cookies) }
