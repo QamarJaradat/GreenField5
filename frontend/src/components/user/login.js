@@ -69,22 +69,24 @@ class Login extends React.Component {
 
           <div id="signin" className="col-sm-4 left form-group">
             <form action="#">
+            <br></br>
+            <br></br>
               <h3 id="signuptitle">Do you have an account</h3>
               <h3>sign in here</h3>
               <div>
                 <label>Your Email</label>
-                <input type="email" className="form-control inputhover" name="email" placeholder="email" onChange={this.handelchange} />
+                <input type="email" className="form-control inputhover" name="email" placeholder="Email" onChange={this.handelchange} />
                 {/* <small id="logErr"></small> */}
                 {/* <small id="emptyuser"></small> */}
               </div>
               <div>
                 <label>Password</label>
-                <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="password" />
+                <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="Password" />
               </div>
               <div style={{ "marginTop": '12px' }}>
                 <small id="logPass"></small>
                 <input type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Signup here</small>
+                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Do not have an account</small>
               </div>
             </form>
           </div>

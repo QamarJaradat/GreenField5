@@ -3,7 +3,7 @@ import '../../../src/App.css';
 import './A-Style.css';
 import Section from './Section';
 import AboutUs from './AboutUs';
-import Cards from './Cards';
+import Cards from './HomeCards';
 
 class Home extends React.Component {
     constructor(props) {
