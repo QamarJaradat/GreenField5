@@ -79,7 +79,7 @@ class App extends React.Component {
     document.documentElement.scrollTop = 0;
     this.getTrips()
     if (document.cookie !== `authToken=`) {
-      console.log('horaii')
+      console.log('hooray')
       $.get('/checkuser', (res) => {
         console.log(res._id)
         $.ajax({

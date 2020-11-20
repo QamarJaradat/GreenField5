@@ -60,7 +60,7 @@ class Payment extends React.Component {
 
                         if (updatedData === 'all update') {
                             console.log(updatedData)
-                            document.getElementById("wait").innerHTML = "<div class='alert alert-primary' role='alert'>Wait a moment please</div>"
+                            document.getElementById("wait").innerHTML = "<div class='alert alert-secondary' role='alert'>Wait a moment please</div>"
                             setTimeout(() => {
                                 setTimeout(() => {
 
