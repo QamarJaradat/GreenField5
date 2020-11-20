@@ -76,7 +76,7 @@ class Trip extends React.Component {
                     </div>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/1071/1071526.svg' alt='People'></img>
-                        <p>{this.state.thetrip.maximumNumPerTrip} person <small> available {this.state.maxnoPerTrip - this.state.whobookit} set</small></p>
+                        <p>{this.state.thetrip.maximumNumPerTrip} person -- <small> available {this.state.maxnoPerTrip - this.state.whobookit} seat</small></p>
 
                     </div>
                     <div>
@@ -131,7 +131,7 @@ class Trip extends React.Component {
                                         document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>You had alredy book this trip!</strong></div>"
 
                                     if (this.state.maxnoPerTrip === this.state.whobookit) {
-                                        document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>No More set, check other trips</strong></div>"
+                                        document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>No More seats, check other trips</strong></div>"
                                     } if (ex.getTime() < today.getTime()) {
                                         document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>dead line ended</strong></div>"
                                     }
