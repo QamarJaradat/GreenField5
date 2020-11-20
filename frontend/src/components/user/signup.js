@@ -112,6 +112,7 @@ class Signup extends Component {
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
+                                
                                 {/* <small id="emptyname"> </small> */}
                             </div>
                             <div>

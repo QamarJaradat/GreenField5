@@ -9,7 +9,9 @@ body{
 .inlinediv{
     display: inline-block;
 }
-
+#details{
+    background-color: coral;
+}
 .tripimgs{
   object-fit: cover;
   object-position: 50% 50%;
