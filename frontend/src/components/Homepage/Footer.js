@@ -9,7 +9,7 @@ function Footer() {
             <div className='center'>
                 <section className='footer-subscription'>
                     <p className='footer-subscription-heading'>
-                        Join the newsletter to receive our new updates</p>
+                        Join our newsletter to receive the new updates</p>
                     <p className='footer-subscription-text'>
                         You can unsubscribe at any time.</p>
                     <div className='input-areas'>

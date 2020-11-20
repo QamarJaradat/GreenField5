@@ -20,7 +20,7 @@ class Cards extends React.Component {
         // console.log(this.props.testtrips)
         return (
             <div className='cards'>
-                <h1>Check out our Trips</h1>
+                <h1>Check Out Our Trips</h1>
                 <div className='cards__container'>
                     <div className="cards__wrapper">
                         <ul className="cards__items">
