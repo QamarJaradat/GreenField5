@@ -57,7 +57,7 @@ class Trip extends React.Component {
                     </div>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/1071/1071526.svg' alt='People'></img>
-                        <p>{this.state.thetrip.maximumNumPerTrip} person <small> available {this.state.maxnoPerTrip - this.state.whobookit} set</small></p>
+                        <p>{this.state.thetrip.maximumNumPerTrip} person -- <small> available {this.state.maxnoPerTrip - this.state.whobookit} seat</small></p>
                     </div>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/2635/2635433.svg' alt='Price'></img>
