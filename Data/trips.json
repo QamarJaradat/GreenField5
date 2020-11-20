@@ -81,7 +81,7 @@
             "name": "Wadi Qanna Trip",
             "price": "60 NIS",
             "date": "2020-12-18T00:00:00.000+00:00",
-            "deadLine": "2020-12-17T00:00:00.000+00:000",
+            "deadLine": "2020-12-17T00:00:00.000+00:00",
             "tripGuide": "Guide 2",
             "maximumNumPerTrip": 35,
             "idOfTourist": [],
