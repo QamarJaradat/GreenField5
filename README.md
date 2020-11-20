@@ -58,4 +58,5 @@ npm start
 open your localhost:4000
 
 ### Picture Documentation
+![Home Page](https://imgur.com/undefined)
 
