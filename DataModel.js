@@ -19,7 +19,7 @@ let tripsSchema = mongoose.Schema({
     explore: String,
     price: String,
     date: Date,
-    deadline: Date,
+    deadLine: Date,
     tripGuide: String,
     maximumNumPerTrip: Number,
     idOfTourist: [String],
@@ -53,18 +53,3 @@ let payment = mongoose.model("paymentinfo", paymentSchema);
 module.exports.users = users
 module.exports.payment = payment
 module.exports.trips = trips
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -13,7 +13,8 @@ class Profile extends React.Component {
     this.state = {
       usename: '',
       useremail: '',
-      mytrips: ''
+      mytrips: '',
+      profileimg: 'https://i.imgur.com/ejGOOnV.jpg'
     }
     this.booktrip = this.booktrip.bind(this)
   }
@@ -24,6 +25,11 @@ class Profile extends React.Component {
 
   componentDidMount() {
     console.log(this.props.userid)
+    if (this.props.userid.userimage) {
+      this.setState({
+        profileimg: this.props.userid.userimage
+      })
+    }
     var array = []
     if (this.props.userid.trips) {
       // console.log(this.props.userid.trips)
@@ -90,7 +96,7 @@ class Profile extends React.Component {
             <br></br>
             <div className='picContainer'>
               <img className="img1"
-                src={this.props.userid.userimage}
+                src={this.state.profileimg}
                 alt="userPic"
               />
             </div>
