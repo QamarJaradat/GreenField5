@@ -107,6 +107,8 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
+                        <br></br>
+                        <br></br>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>New To Our Website</h4>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>Join Us and Signup Here</h4>
                             <div>
@@ -141,7 +143,7 @@ class Signup extends Component {
                             </div>
                             <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
                             <div>
-                                <lable>Put URL link for your image</lable>
+                                <lable>Add your Image URL</lable>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage" />
                             </div>
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
@@ -149,7 +151,7 @@ class Signup extends Component {
                                     <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
                                     <small id="subscribed"></small>
                                     <br></br>
-
+                                    <br></br>
                                 </div>
 
                             </div>
@@ -157,7 +159,7 @@ class Signup extends Component {
                                 <small id="matchPass"></small>
                                 <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '4px' }}></input>
 
-                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Have an account? Login Here.</small>
 
                             </div>
                         </form>
