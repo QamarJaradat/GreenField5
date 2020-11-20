@@ -2,7 +2,7 @@
 .test{
    
     /* background-color: red; */
-    height:138vh;
+    height:142vh;
 
 
 background-image:url('https://www.orbisrealty.com/wp-content/uploads/2019/07/o-TOURIST-facebook.jpg');
@@ -18,7 +18,7 @@ html, body {
   #signup,#signin{
       
       background-color: rgba(255, 255, 255, 0.603);
-      height:138vh;
+      height:142vh;
  }
  
  .inputhover:hover{
