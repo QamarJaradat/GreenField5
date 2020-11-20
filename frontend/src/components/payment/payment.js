@@ -63,7 +63,7 @@ class Payment extends React.Component {
                             document.getElementById("wait").innerHTML = "<div class='alert alert-primary' role='alert'>Wait a moment please</div>"
                             setTimeout(() => {
                                 setTimeout(() => {
-                                    
+
                                     window.location.href = "/"
                                 }, 3000);
                                 document.getElementById("wait").innerHTML = "<div class='alert alert-primary' role='alert'>Enjoy your trip</div>"
@@ -106,13 +106,12 @@ class Payment extends React.Component {
                             <div>
                                 <label>Expired Date</label>
                                 <input type='date' className="form-control" name="edate" onChange={this.handelchange} placeholder=" Credit Card Expier Date" />
-                            <small id="Expired"></small>
+                                <small id="Expired"></small>
                             </div>
 
                             <div style={{ "marginTop": '12px' }}>
                                 <input type='button' value='Ready to Go!' className="btn btn-secondary" onClick={this.checkPayment} style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
                             </div>
-                            <br></br>
                             <br></br>
                             <br></br>
                             <small id="wait"></small>

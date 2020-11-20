@@ -1,43 +1,33 @@
-
 .test{
-   
-    /* background-color: red; */
-    height:120vh;
+    height:142vh;
+    background-image:url('https://www.orbisrealty.com/wp-content/uploads/2019/07/o-TOURIST-facebook.jpg');
+    background-size: cover;
+    object-position: 50% 50%;
 
-
-background-image:url('https://www.orbisrealty.com/wp-content/uploads/2019/07/o-TOURIST-facebook.jpg');
-background-size: cover;
 }
+
 html, body {
     margin:0px;
     height:100%;
-  }
+}
 
-  #signup,#signin{
-      
-      background-color: rgba(255, 255, 255, 0.603);
-      height:120vh;
- }
+#signup,#signin{
+    background-color: rgba(255, 255, 255, 0.603);
+    height:142vh;
+}
  
- .inputhover:hover{
+.inputhover:hover{
 
-     background-color:rgba(82, 10, 41, 0.377);
-     transition: 0.3s;
- }
- #LoginupSwitch:hover {
-     color : rgb(20, 20, 133) !important;
-     cursor: pointer;
- }  
- 
- 
- 
-  /* h3,h3{
-    font-family: 'Dancing Script', cursive;
-  } */
+    background-color:rgba(82, 10, 41, 0.377);
+    transition: 0.3s;
+}
 
-  form{
-      margin-left: 10%;
-      margin-right: 10%;
-  }
-
+#LoginupSwitch:hover {
+    color : rgb(20, 20, 133) !important;
+    cursor: pointer;
+}  
  
+form{
+    margin-left: 10%;
+    margin-right: 10%;
+}

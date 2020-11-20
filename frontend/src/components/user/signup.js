@@ -41,61 +41,65 @@ class Signup extends Component {
 
     LoginHandler() {
         console.log(this.state.file)
-        if (this.state.password === this.state.conformPassword) {
-            var username = this.state.firstName + " " + this.state.lastName
-            var data = {
-                userName: username, userPass: this.state.password,
-                userMail: this.state.email, userNum: this.state.phoneNo,
-                userfirstName: this.state.firstName,
-                newsLetter: this.state.newsCheck,
-                userimage: this.state.urlimage,
-            }
-            $.ajax({
-                type: "POST",
-                url: "/signup",
-                data: data,
-                success: function (res) {
-                    console.log("it's working")
-                    window.location.href = "/"
-
-                },
-                error: function (error) {
-                    if (error.status === 451) {
-                        console.log('451')
-
-                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your name</div>"
-
-                    }
-
-                    if (error.status === 411) {
-                        //alert('wrong password')
-                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
-
-                    }
-
-                    if (error.status === 421) {
-
-                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your password</div>"
-
-                    }
-
-
-
-                    if (error.status === 406) {
-                        //alert('already created user with this Email')
-                        document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> This email has been used</div>"
-
-                        console.log(error.responseText)
-                    }
+        if (!validateEmail(this.state.email)) {
+            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'>Wrong Email</div>"
+        }
+        else
+            if (this.state.password === this.state.conformPassword) {
+                var username = this.state.firstName + " " + this.state.lastName
+                var data = {
+                    userName: username, userPass: this.state.password,
+                    userMail: this.state.email, userNum: this.state.phoneNo,
+                    userfirstName: this.state.firstName,
+                    newsLetter: this.state.newsCheck,
+                    userimage: this.state.urlimage,
                 }
-            })
+                $.ajax({
+                    type: "POST",
+                    url: "/signup",
+                    data: data,
+                    success: function (res) {
+                        console.log("it's working")
+                        window.location.href = "/"
 
-        }
-        else {
-            //alert("Password not matche");
-            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> passwords don't match</div>"
+                    },
+                    error: function (error) {
+                        if (error.status === 451) {
+                            console.log('451')
 
-        }
+                            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your name</div>"
+
+                        }
+
+                        if (error.status === 411) {
+                            //alert('wrong password')
+                            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
+
+                        }
+
+                        if (error.status === 421) {
+
+                            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your password</div>"
+
+                        }
+
+
+
+                        if (error.status === 406) {
+                            //alert('already created user with this Email')
+                            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> This email has been used</div>"
+
+                            console.log(error.responseText)
+                        }
+                    }
+                })
+
+            }
+            else {
+                //alert("Password not matche");
+                document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> passwords don't match</div>"
+
+            }
     }
     render() {
 
@@ -107,6 +111,8 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
+                        <br></br>
+                        <br></br>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>New To Our Website</h4>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>Join Us and Signup Here</h4>
                             <div>
@@ -140,15 +146,16 @@ class Signup extends Component {
                                 <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
                             </div>
                             <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
-                            <div>
-                                <lable>Put URL link for your image</lable>
-                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage" />
-                            </div>
+
+                                <div>
+                                    <lable>Put URL link for your image</lable>
+                                    <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage" />
+                                </div>
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
-                                <div style={{ "marginTop": '4px' }}>
+                                <div style={{ "marginBottom": '0' }}>
                                     <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
                                     <small id="subscribed"></small>
-                                    <br></br>
+
 
                                 </div>
 
@@ -157,7 +164,7 @@ class Signup extends Component {
                                 <small id="matchPass"></small>
                                 <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '4px' }}></input>
 
-                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>have account? Login.</small>
+                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Have an account? Login Here.</small>
 
                             </div>
                         </form>
@@ -171,3 +178,9 @@ class Signup extends Component {
 
 
 export default Signup;
+
+
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}

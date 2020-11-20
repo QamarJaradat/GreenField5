@@ -3,12 +3,12 @@
   font-family: 'Dancing Script', cursive;
   color:#2D1214;
 }
+
 /* ////////////////////////////////////////////////// */
 /* Footer.css */
 .footer-container {
   background-color: #242424;
   padding: 4rem 0 2rem 0;
-  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -17,18 +17,15 @@
 
 .center{
   margin: auto;
-  /* width: 50%; */
   padding: 10px;
   text-align: center;
 }
 
 .footer-subscription {
-  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
   margin-bottom: 24px;
   padding: 24px;
   color: #fff;
@@ -36,7 +33,7 @@
 
 .footer-subscription > p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  'Lucida Sans', Arial, sans-serif;
 }
 
 .footer-subscription-heading {
@@ -128,10 +125,7 @@
   align-items: center;
   width: 90%;
   max-width: 1000px;
-  /* margin: 40px auto 0 auto; */
   text-align: center;
-  /* margin-left: 30vh; */
-
 }
 
 .social-icons {
@@ -152,10 +146,12 @@
   align-items: center;
   margin-bottom: 16px;
 }
+
 .social-logo :hover {
   color:None !important;
   Text-decoration: None !important;
 }
+
 .website-rights {
   color: #fff;
   margin-bottom: 16px;
@@ -185,6 +181,7 @@
 
 @media screen and (max-width: 768px) {
 }
+
 /* ////////////////////////////////////////////////// */
 /* Cards.css */
 .cards {
@@ -285,7 +282,8 @@ h1,h3 {
 
 .cards__item__text {
   color: #252e48;
-  font-size: 18px;
+  font-size: 14px;
+  text-align: center;
   line-height: 24px;
   Text-decoration: None !important
 }
@@ -307,6 +305,7 @@ h1,h3 {
     margin-bottom: 2rem;
   }
 }
+
 /* ////////////////////////////////////////////////// */
 /* Section.css */
 video {
@@ -383,6 +382,7 @@ video {
       width: 100%;
     }
   }
+
 /* ////////////////////////////////////////////////// */
 /* Navbar.css */
 .navbar {
@@ -552,6 +552,7 @@ video {
         transition: 250ms;
       }
     }
+    
 /* ////////////////////////////////////////////////// */
 /* Button.css */
 :root {
