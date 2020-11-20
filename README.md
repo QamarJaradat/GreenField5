@@ -59,4 +59,5 @@ open your localhost:4000
 
 ### Picture Documentation
 ![Home Page](https://i.imgur.com/T6WHKg9.png)
+![Trips Page](https://imgur.com/a/AZKydOf)
 
