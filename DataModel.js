@@ -53,18 +53,3 @@ let payment = mongoose.model("paymentinfo", paymentSchema);
 module.exports.users = users
 module.exports.payment = payment
 module.exports.trips = trips
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
