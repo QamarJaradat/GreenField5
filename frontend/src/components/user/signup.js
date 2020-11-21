@@ -111,14 +111,14 @@ class Signup extends Component {
 
                     <div id="signup" className="col-sm-4 right" >
                         <form action="#" className='form1' >
-                        <br></br>
-                        <br></br>
+                            <br></br>
+                            <br></br>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>New To Our Website</h4>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>Join Us and Signup Here</h4>
                             <div>
                                 <label>First Name</label>
                                 <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
-                                
+
                                 {/* <small id="emptyname"> </small> */}
                             </div>
                             <div>

@@ -46,7 +46,7 @@ class Trip extends React.Component {
     render() {
         return (
             <div >
-                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' ,'background-color': 'red' }}>
+                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/2945/2945620.svg' alt='Trip Map'></img>
                         <p>{this.state.thetrip.name}</p>

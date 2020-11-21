@@ -57,7 +57,7 @@ class Payment extends React.Component {
                     url: '/addtrip',
                     data: paydata,
                     success: function (updatedData) {
-
+                        document.getElementById("Expired").innerHTML = "<p></p>"
                         if (updatedData === 'all update') {
                             console.log(updatedData)
                             document.getElementById("wait").innerHTML = "<div class='alert alert-secondary' role='alert'>Wait a moment please</div>"

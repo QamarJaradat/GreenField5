@@ -24,14 +24,14 @@ class Login extends React.Component {
       type: "POST",
       url: "/login",
       data: data,
-      success:  (res)=> {
+      success: (res) => {
         console.log(this.props)
         this.props.toggleuser()
         window.location.href = "/"
       },
       error: function (error) {
         if (error.status === 410) {
-          //alert('wrong password')
+          //alert('Empty data')
           document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
 
         }
@@ -69,8 +69,8 @@ class Login extends React.Component {
 
           <div id="signin" className="col-sm-4 left form-group">
             <form action="#">
-            <br></br>
-            <br></br>
+              <br></br>
+              <br></br>
               <h3 id="signuptitle">Do you have an account</h3>
               <h3>sign in here</h3>
               <div>
