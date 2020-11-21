@@ -20,6 +20,9 @@ exports.signUpUser = async (req, res) => {
     if (!userMail) {
         return res.status(411).send('error')
     }
+    if (!req.body.userNum) {
+        return res.status(431).send('error')
+    }
 
     UserModel.findOne({ userMail: req.body.userMail }, (err, user) => {
         if (err) {

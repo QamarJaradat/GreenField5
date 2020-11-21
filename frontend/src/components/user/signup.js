@@ -83,6 +83,12 @@ class Signup extends Component {
 
                         }
 
+                        if (error.status === 431) {
+
+                            document.getElementById("matchPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your Phone Number</div>"
+
+                        }
+
 
 
                         if (error.status === 406) {

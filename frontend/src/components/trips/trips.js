@@ -128,7 +128,7 @@ class Trip extends React.Component {
 
 
                                     if (this.props.location.state.trip.idOfTourist.includes(this.props.location.state.userid))
-                                        document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>You had alredy book this trip!</strong></div>"
+                                        document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>You had already book this trip!</strong></div>"
 
                                     if (this.state.maxnoPerTrip === this.state.whobookit) {
                                         document.getElementById("nobook").innerHTML = "<div class='alert alert-secondary' role='alert'><strong>No More seats, check other trips</strong></div>"
